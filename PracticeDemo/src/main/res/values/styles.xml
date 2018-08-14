@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+         <!--Customize your theme here. -->
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="AppThem" parent="AppTheme.Base">
+    </style>
+    
+    <style name="app_common_bg">
+        <item name="android:background">@android:color/white</item>
+    </style>
+    
+    <style name="my_menu" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownHorizontalOffset">1dp</item>
+        <item name="android:dropDownVerticalOffset">1dp</item>
+    </style>
+</resources>
