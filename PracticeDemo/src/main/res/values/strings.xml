@@ -2,5 +2,7 @@
     <string name="app_name">PracticeDemo</string>
     <string name="action_settings">Settings</string>
     <string name="activity_rx_java_pra_show_text">显示rxjava运行结果</string>
+    <string name="activity_dagger2_pra_show_text">显示dagger运行结果</string>
     <string name="activity_run_rx_java_pra">运行RxJava2</string>
+    <string name="activity_start_dagger2_pra">开始注入</string>
 </resources>

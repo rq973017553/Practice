@@ -5,7 +5,7 @@ import android.app.Activity;
 /**
  * PracticeBean
  * @author rock you
- * @version 1.0.0
+ * @version [1.0.0, 2018.8.14]
  */
 public class PracticeBean {
 

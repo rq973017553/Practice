@@ -5,20 +5,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
 import com.rq.practice.activities.base.MVPBaseActivity;
 import com.rq.practice.framework.contract.RxJavaPracticeContract;
-import com.rq.practice.framework.presenter.RxJavaPracticePresenter;
-import com.rq.practice.utils.RxJavaPractice;
 
 /**
- * &lt;一句话功能简述&gt;
- * &lt;功能详细描述&gt;
- *
- * @author ${user}
- * @version [版本号, ${date}]
- * @see [相关类/方法]
- * @since [产品/模块版本]
+ * RxJava练习Activity
+ * @author rock you
+ * @version [1.0.0, 2018.8.14]
  */
 public class RxJavaPracticeActivity extends MVPBaseActivity<RxJavaPracticeContract.RxJavaPracticePresenter> implements RxJavaPracticeContract.RxJavaPracticeActivityView{
 
@@ -41,7 +34,7 @@ public class RxJavaPracticeActivity extends MVPBaseActivity<RxJavaPracticeContra
     @Override
     public void initData() {
         // 暂时这样写，后期使用Dagger2
-        mPresenter = new RxJavaPracticePresenter();
+//        mPresenter = new RxJavaPracticePresenter();
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

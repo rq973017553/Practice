@@ -3,8 +3,10 @@ package com.rq.practice.activities.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.rq.practice.framework.presenter.BasePresenter;
+import com.rq.practice.framework.presenter.base.BasePresenter;
 import com.rq.practice.framework.view.BaseView;
+
+import javax.inject.Inject;
 
 /**
  * 带MVP架构的BaseActivity
@@ -14,6 +16,7 @@ import com.rq.practice.framework.view.BaseView;
  */
 public abstract class MVPBaseActivity<P extends BasePresenter> extends BaseActivity implements BaseView {
 
+    @Inject
     protected P mPresenter;
 
     @SuppressWarnings("unchecked")

@@ -1,6 +1,6 @@
 package com.rq.practice.framework.contract;
 
-import com.rq.practice.framework.presenter.BasePresenter;
+import com.rq.practice.framework.presenter.base.BasePresenter;
 import com.rq.practice.framework.view.BaseView;
 
 /**

@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.rq.practice.framework.presenter.BasePresenter;
+import com.rq.practice.framework.presenter.base.BasePresenter;
 import com.rq.practice.framework.view.BaseView;
+
+import javax.inject.Inject;
 
 /**
  * 带MVP的BaseLazyLoadFragment
@@ -18,6 +20,7 @@ import com.rq.practice.framework.view.BaseView;
  */
 public abstract class MVPBaseLazyLoadFragment<P extends BasePresenter> extends BaseLazyLoadFragment implements BaseView{
 
+    @Inject
     protected P mPresenter;
 
     @SuppressWarnings("unchecked")

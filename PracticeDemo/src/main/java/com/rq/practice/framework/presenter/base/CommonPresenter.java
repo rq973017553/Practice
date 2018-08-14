@@ -1,4 +1,4 @@
-package com.rq.practice.framework.presenter;
+package com.rq.practice.framework.presenter.base;
 
 import com.rq.practice.framework.view.BaseView;
 

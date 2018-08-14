@@ -1,2 +1,2 @@
 # Practice
-PracticeDemo的替代版本
+练习项目
