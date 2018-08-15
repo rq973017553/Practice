@@ -6,8 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 
 import javax.inject.Scope;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 /**
  * Fragment使用的Scope
  * @author rock you

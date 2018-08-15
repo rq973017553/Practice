@@ -11,13 +11,13 @@ import com.rq.practice.framework.view.BaseView;
  */
 public interface RxJavaPracticeContract {
 
-    interface RxJavaPracticeActivityView extends BaseView{
+    interface View extends BaseView{
 
         // 显示RxJava结果
         void showRxJavaResult(String result);
     }
 
-    interface RxJavaPracticePresenter extends BasePresenter<RxJavaPracticeActivityView>{
+    interface Presenter extends BasePresenter<View>{
 
         // 启动RXJava练习
         void startRxJavaPractice();

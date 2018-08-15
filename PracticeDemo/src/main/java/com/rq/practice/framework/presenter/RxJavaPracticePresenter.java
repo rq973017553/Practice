@@ -14,7 +14,7 @@ import javax.inject.Inject;
  * @author rock you
  * @version [1.0.0 2018.8.3]
  */
-public class RxJavaPracticePresenter extends CommonPresenter<RxJavaPracticeContract.RxJavaPracticeActivityView> implements RxJavaPracticeContract.RxJavaPracticePresenter {
+public class RxJavaPracticePresenter extends CommonPresenter<RxJavaPracticeContract.View> implements RxJavaPracticeContract.Presenter {
 
     @Inject
     public RxJavaPracticePresenter(){

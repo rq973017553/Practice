@@ -6,8 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 
 import javax.inject.Scope;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 /**
  * Activity使用的Scope
  * @author rock you

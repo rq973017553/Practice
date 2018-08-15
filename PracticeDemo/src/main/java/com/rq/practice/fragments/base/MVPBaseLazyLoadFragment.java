@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.rq.practice.PracticeApplication;
+import com.rq.practice.framework.dagger.component.DaggerFragmentComponent;
+import com.rq.practice.framework.dagger.component.FragmentComponent;
 import com.rq.practice.framework.presenter.base.BasePresenter;
 import com.rq.practice.framework.view.BaseView;
 
@@ -28,12 +31,19 @@ public abstract class MVPBaseLazyLoadFragment<P extends BasePresenter> extends B
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        inject(getFragmentComponent());
         // 暂时这样写，后续加入Dagger2
         if (mPresenter == null){
             throw new RuntimeException("presenter is null!");
         }
         mPresenter.attachView(this);
         return view;
+    }
+
+    private FragmentComponent getFragmentComponent(){
+        return DaggerFragmentComponent.builder()
+                .appComponent(PracticeApplication.getAppComponent())
+                .build();
     }
 
     @Override
@@ -68,4 +78,6 @@ public abstract class MVPBaseLazyLoadFragment<P extends BasePresenter> extends B
     public void stopLoading() {
 
     }
+
+    public abstract void inject(FragmentComponent activityComponent);
 }
