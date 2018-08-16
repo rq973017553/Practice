@@ -27,6 +27,9 @@
 
         <!--RxJava2练习-->
         <activity android:name=".activities.practice.RxJavaPracticeActivity"/>
+
+        <!--ViewPager&TabLayout练习-->
+        <activity android:name=".activities.practice.ViewPagerTabLayoutPractice"/>
     </application>
 
 </manifest>

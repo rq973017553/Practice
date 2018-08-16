@@ -39,19 +39,24 @@ public abstract class BaseFragment extends Fragment {
         return mView;
     }
 
-    public Fragment newInstance(Bundle bundle){
-        Fragment fragment = createFragment();
-        if (bundle != null){
-            fragment.setArguments(bundle);
+    public static <T> Fragment newInstance(Class<T> clazz, Bundle bundle){
+        Fragment fragment = null;
+        try {
+            fragment = (Fragment) clazz.newInstance();
+            if (bundle != null){
+                fragment.setArguments(bundle);
+            }
+        } catch (java.lang.InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
         return fragment;
     }
 
-    public Fragment newInstance(){
-        return newInstance(null);
+    public static <T> Fragment newInstance(Class<T> clazz){
+        return newInstance(clazz, null);
     }
-
-    protected abstract Fragment createFragment();
 
     public abstract int getLayoutID();
 

@@ -35,8 +35,6 @@ public class RxJavaPracticeActivity extends MVPBaseActivity<RxJavaPracticePresen
 
     @Override
     public void initData() {
-        // 暂时这样写，后期使用Dagger2
-//        mPresenter = new RxJavaPracticePresenter();
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

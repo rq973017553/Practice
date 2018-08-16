@@ -3,17 +3,13 @@ package com.rq.practice.fragments.base;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.rq.practice.PracticeApplication;
-import com.rq.practice.framework.dagger.component.ActivityComponent;
-import com.rq.practice.framework.dagger.component.DaggerActivityComponent;
 import com.rq.practice.framework.dagger.component.DaggerFragmentComponent;
 import com.rq.practice.framework.dagger.component.FragmentComponent;
-import com.rq.practice.framework.dagger.module.ActivityModule;
 import com.rq.practice.framework.presenter.base.BasePresenter;
 import com.rq.practice.framework.view.BaseView;
 
@@ -34,9 +30,8 @@ public abstract class MVPBaseFragment<P extends BasePresenter> extends BaseFragm
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = super.onCreateView(inflater, container, savedInstanceState);
         inject(getFragmentComponent());
-        // 暂时这样写，后续加入Dagger2
+        View view = super.onCreateView(inflater, container, savedInstanceState);
         if (mPresenter == null){
             throw new RuntimeException("presenter is null!");
         }
@@ -83,5 +78,5 @@ public abstract class MVPBaseFragment<P extends BasePresenter> extends BaseFragm
 
     }
 
-    public abstract void inject(FragmentComponent activityComponent);
+    public abstract void inject(FragmentComponent fragmentComponent);
 }

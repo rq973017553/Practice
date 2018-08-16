@@ -10,13 +10,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * &lt;一句话功能简述&gt;
- * &lt;功能详细描述&gt;
- *
- * @author ${user}
- * @version [版本号, ${date}]
- * @see [相关类/方法]
- * @since [产品/模块版本]
+ * 提供给ListView&GridView的Adapter
+ * @author rock you
+ * @version [1.0.0, 2018.8.16]
  */
 public abstract class CommonBaseAdapter<T> extends BaseAdapter implements IAdapter{
 

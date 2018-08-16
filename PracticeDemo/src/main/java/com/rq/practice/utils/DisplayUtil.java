@@ -3,6 +3,12 @@ package com.rq.practice.utils;
 import android.app.Activity;
 import android.content.Context;
 
+/**
+ * Display工具
+ *
+ * @author rock you
+ * @version [1.0.0 2018.8.16]
+ */
 public class DisplayUtil
 {
     public static int dip2px(Context context, double dipValue)

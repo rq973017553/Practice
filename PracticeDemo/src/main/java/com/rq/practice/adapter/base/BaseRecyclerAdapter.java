@@ -14,7 +14,6 @@ import java.util.List;
 
 /**
  * RecyclerView.Adapter的再封装
- * 只需要复写两个abstract方法即可
  * Created by Rock you
  */
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRecyclerAdapter.RecyclerViewHolder> implements IAdapter{

@@ -1,7 +1,5 @@
 package com.rq.practice.fragments;
 
-import android.support.v4.app.Fragment;
-
 import com.rq.practice.fragments.base.BaseFragment;
 
 public class HomeFragment extends BaseFragment {
@@ -19,10 +17,5 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void initData() {
 
-    }
-
-    @Override
-    protected Fragment createFragment() {
-        return new HomeFragment();
     }
 }

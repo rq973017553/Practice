@@ -30,9 +30,8 @@ public abstract class MVPBaseLazyLoadFragment<P extends BasePresenter> extends B
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = super.onCreateView(inflater, container, savedInstanceState);
         inject(getFragmentComponent());
-        // 暂时这样写，后续加入Dagger2
+        View view = super.onCreateView(inflater, container, savedInstanceState);
         if (mPresenter == null){
             throw new RuntimeException("presenter is null!");
         }
@@ -79,5 +78,5 @@ public abstract class MVPBaseLazyLoadFragment<P extends BasePresenter> extends B
 
     }
 
-    public abstract void inject(FragmentComponent activityComponent);
+    public abstract void inject(FragmentComponent fragmentComponent);
 }

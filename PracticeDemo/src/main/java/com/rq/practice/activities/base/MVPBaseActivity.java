@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import com.rq.practice.PracticeApplication;
 import com.rq.practice.framework.dagger.component.ActivityComponent;
 import com.rq.practice.framework.dagger.component.DaggerActivityComponent;
-import com.rq.practice.framework.dagger.module.ActivityModule;
 import com.rq.practice.framework.presenter.base.BasePresenter;
 import com.rq.practice.framework.view.BaseView;
 
@@ -26,8 +25,8 @@ public abstract class MVPBaseActivity<P extends BasePresenter> extends BaseActiv
     @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         inject(getActivityComponent());
+        super.onCreate(savedInstanceState);
         if (mPresenter == null){
             throw new RuntimeException("presenter is null!");
         }
@@ -37,14 +36,8 @@ public abstract class MVPBaseActivity<P extends BasePresenter> extends BaseActiv
     private ActivityComponent getActivityComponent(){
         return DaggerActivityComponent.builder()
                 .appComponent(PracticeApplication.getAppComponent())
-                .activityModule(getActivityModule())
                 .build();
     }
-
-    private ActivityModule getActivityModule(){
-        return new ActivityModule(this);
-    }
-
 
     @Override
     protected void onDestroy() {

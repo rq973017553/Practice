@@ -1,9 +1,6 @@
 package com.rq.practice.framework.dagger.component;
 
-import android.app.Activity;
-
 import com.rq.practice.activities.practice.RxJavaPracticeActivity;
-import com.rq.practice.framework.dagger.module.ActivityModule;
 import com.rq.practice.framework.dagger.scope.ActivityScope;
 
 import dagger.Component;
@@ -14,11 +11,8 @@ import dagger.Component;
  * @version [1.0.0, 2018.8.15]
  */
 @ActivityScope
-@Component(dependencies = {AppComponent.class},
-           modules = {ActivityModule.class})
+@Component(dependencies = {AppComponent.class})
 public interface ActivityComponent {
-
-//    Activity getActivity();
 
     void inject(RxJavaPracticeActivity activity);
 }

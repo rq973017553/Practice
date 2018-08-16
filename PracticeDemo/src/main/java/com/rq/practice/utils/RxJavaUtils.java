@@ -1,10 +1,5 @@
 package com.rq.practice.utils;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.Function;
-
 /**
  * RxJava工具
  *
