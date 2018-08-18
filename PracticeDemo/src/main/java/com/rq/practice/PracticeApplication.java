@@ -5,6 +5,8 @@ import android.app.Application;
 import com.rq.practice.framework.dagger.component.AppComponent;
 import com.rq.practice.framework.dagger.component.DaggerAppComponent;
 import com.rq.practice.framework.dagger.module.AppModule;
+import com.rq.practice.router.Router;
+import com.rq.practice.router.RouterConfiguration;
 import com.rq.practice.utils.EasyLog;
 
 /**
@@ -21,7 +23,18 @@ public class PracticeApplication extends Application {
     public void onCreate() {
         super.onCreate();
         EasyLog.v("onCreate");
+        initConfiguration();
+    }
+
+    private void initConfiguration(){
+        // Dagger构建全局Component
         sAppComponent = createAppComponent();
+
+        // Router初始化配置
+        RouterConfiguration configuration = new RouterConfiguration.Builder()
+                                .init(this)
+                                .build();
+        Router.getInstance().init(configuration);
     }
 
     public static AppComponent getAppComponent() {

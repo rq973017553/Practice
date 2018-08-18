@@ -1,1 +1,1 @@
-include ':PracticeDemo'
+include ':PracticeDemo', ':router'
