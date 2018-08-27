@@ -35,6 +35,20 @@ public class ProxyTools {
      */
     @SuppressWarnings("unchecked")
     public <S, T extends S> S getProxy(T object, ProxyInterceptor interceptor) {
+        return getProxy(object, null, interceptor);
+    }
+
+    /**
+     * 获取代理对象
+     * @param object 被代理的对象
+     * @param interceptor ProxyTools.ProxyInterceptor接口
+     * @param <S> T类型的父接口
+     * @param interfaceArray 接口数组
+     * @param <T> 被代理的数据类型
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public <S, T extends S> S getProxy(T object, Class[] interfaceArray, ProxyInterceptor interceptor) {
         if (object == null) {
             throw new NullPointerException("agent object is null!");
         }
@@ -42,15 +56,17 @@ public class ProxyTools {
             throw new NullPointerException("interceptor is null!");
         }
         this.mInterceptor = interceptor;
+        if (interfaceArray == null || interfaceArray.length == 0){
+            interfaceArray = object.getClass().getInterfaces();
+        }
         Invocation<T> invocation = new Invocation<>(object);
         Object proxy = Proxy.newProxyInstance(ProxyTools.class.getClassLoader(),
-                object.getClass().getInterfaces(), invocation);
+                interfaceArray, invocation);
         return (T) proxy;
     }
 
     /**
      * InvocationHandler的实例化
-     * @param <T>
      */
     private class Invocation<T> implements InvocationHandler {
 
@@ -63,7 +79,7 @@ public class ProxyTools {
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-            return mInterceptor.interceptor(t, method, args);
+            return mInterceptor.interceptor(t, proxy, method, args);
         }
     }
 
@@ -71,6 +87,16 @@ public class ProxyTools {
      * 对外暴露的代理接口
      */
     public interface ProxyInterceptor {
-        Object interceptor(Object proxy, Method method, Object[] args) throws Throwable;
+
+        /**
+         * 拦截接口
+         * @param obj 原对象
+         * @param proxy 代理
+         * @param method 方法
+         * @param args 方法参数
+         * @return 生成的代理对象
+         * @throws Throwable Throwable
+         */
+        Object interceptor(Object obj, Object proxy, Method method, Object[] args) throws Throwable;
     }
 }
