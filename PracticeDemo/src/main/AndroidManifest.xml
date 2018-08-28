@@ -30,6 +30,9 @@
 
         <!--ViewPager&TabLayout练习-->
         <activity android:name=".activities.practice.ViewPagerTabLayoutPractice"/>
+
+        <!--JNI练习Activity-->
+        <activity android:name=".activities.practice.JNIPracticeActivity"/>
     </application>
 
 </manifest>

@@ -51,4 +51,7 @@ dependencies {
 
     // 自己写的路由
     implementation project(':router')
+
+    // jni练习
+    implementation project(':jnilibrary')
 }

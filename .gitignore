@@ -24,6 +24,9 @@ gradle
 .gradle/
 build/
 
+#CMake .externalNativeBuild
+.externalNativeBuild/
+
 # Local configuration file (sdk path, etc)
 local.properties
 

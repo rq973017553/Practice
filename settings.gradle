@@ -1,1 +1,1 @@
-include ':PracticeDemo', ':router'
+include ':PracticeDemo', ':router', ':jnilibrary'

@@ -10,6 +10,7 @@ import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseActivity;
 import com.rq.practice.activities.practice.CustomScrollActivity;
 import com.rq.practice.activities.practice.FragmentTabHostPractice;
+import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.RxJavaPracticeActivity;
 import com.rq.practice.activities.practice.ViewPagerTabLayoutPractice;
 import com.rq.practice.adapter.MainAdapter;
@@ -56,6 +57,7 @@ public class MainActivity extends BaseActivity {
         listData.add(createPracticeBean(CustomScrollActivity.class));
         listData.add(createPracticeBean(RxJavaPracticeActivity.class));
         listData.add(createPracticeBean(ViewPagerTabLayoutPractice.class));
+        listData.add(createPracticeBean(JNIPracticeActivity.class));
         mMainAdapter.setListData(listData);
     }
 
