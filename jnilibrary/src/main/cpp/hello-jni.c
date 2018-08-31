@@ -15,6 +15,38 @@
  *
  */
 #include <jni.h>
+#include "log.h"
+
+/**
+ * long -> J
+ * boolean -> Z
+ *
+ * long[] -> [J
+ * boolean[] -> [Z
+ *
+ * 函数
+ * int aa(int a, int b) -> (II)I
+ *
+ * L${java类路径，其中"."换成"/"}结尾加上;
+ * 如果该类是内部类在类似如下
+ * Landroid/os/FileUtils$FileStatus;
+ */
+JNINativeMethod jniNativeMethods[]={
+        {"add","(II)I",(void*) add}
+};
+
+/**
+ * 加法
+ * @param env
+ * @param thiz
+ * @param a
+ * @param b
+ * @return
+ */
+jint add(JNIEnv* env, jobject thiz, jint a, jint b){
+    int result = a + b;
+    return result;
+}
 
 /* This is a trivial JNI example where we use a native method
  * to return a new VM String. See the corresponding Java source
@@ -59,4 +91,43 @@ Java_com_rq_practice_jni_JNITools_stringFromJNI( JNIEnv* env,
 #endif
 
     return (*env)->NewStringUTF(env, "Hello from JNI !  Compiled with ABI " ABI ".");
+}
+
+static char* CLASS_NAME = "com/rq/practice/jni/JNITools";
+
+int registerNativeMethods(JNIEnv *env, char *className, JNINativeMethod *methods, int nativeMethodSize){
+    jclass  clazz;
+    clazz = (*env) -> FindClass(env, className);
+    if (clazz == NULL){
+        return JNI_FALSE;
+    }
+    if ((*env) -> RegisterNatives(env, className, methods, nativeMethodSize) < 0){
+        return JNI_FALSE;
+    }
+    return JNI_TRUE;
+}
+
+/**
+ *
+ * @param jvm
+ * @param reserved
+ * @return
+ */
+JNIEXPORT jint JNI_OnLoad(JavaVM *jvm, void *reserved){
+    LOGD("OnLoad!");
+    JNIEnv *env;
+    if ((*jvm) -> GetEnv(jvm, (void**) &env, JNI_VERSION_1_6) != JNI_OK)
+    {
+        return JNI_ERR;
+    }
+    int size = sizeof(jniNativeMethods) / sizeof(jniNativeMethods[0]);
+    if (!registerNativeMethods(env, CLASS_NAME, jniNativeMethods, size)){
+        return JNI_ERR;
+    }
+
+    return JNI_VERSION_1_6;
+}
+
+JNIEXPORT void JNI_UnOnload(JavaVM *jvm, void *reserved){
+    LOGD("unOnLoad!");
 }

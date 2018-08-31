@@ -33,6 +33,9 @@
 
         <!--JNI练习Activity-->
         <activity android:name=".activities.practice.JNIPracticeActivity"/>
+
+        <!--ListView练习-->
+        <activity android:name=".activities.practice.ListViewPracticeActivity"/>
     </application>
 
 </manifest>

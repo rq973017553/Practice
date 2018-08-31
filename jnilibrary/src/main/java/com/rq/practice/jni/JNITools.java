@@ -10,6 +10,8 @@ public class JNITools {
 
     public native String  stringFromJNI();
 
+    public native int add(int a, int b);
+
     static {
         System.loadLibrary("hello-jni");
     }
