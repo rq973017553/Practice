@@ -62,10 +62,12 @@ public class ListViewPracticeActivity extends BaseActivity {
                     //滚动后下标大于滚动前 向下滚动了
                     if(scrolled>lvIndext){
                         //scroll = false;
+                        EasyLog.v("向下滚动");
                     }
                     else {
                         //向上滚动了
                         //scroll = true;
+                        EasyLog.v("向上滚动");
                     }
                         EasyLog.v("SCROLL_STATE_IDLE");
                     break;

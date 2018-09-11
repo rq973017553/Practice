@@ -18,6 +18,19 @@
 #include "log.h"
 
 /**
+ * 加法
+ * @param env
+ * @param thiz
+ * @param a
+ * @param b
+ * @return
+ */
+jint native_add(JNIEnv* env, jobject thiz, jint a, jint b){
+    int result = a + b;
+    return result;
+}
+
+/**
  * long -> J
  * boolean -> Z
  *
@@ -32,21 +45,8 @@
  * Landroid/os/FileUtils$FileStatus;
  */
 JNINativeMethod jniNativeMethods[]={
-        {"add","(II)I",(void*) add}
+        {"add","(II)I", (void*)native_add}
 };
-
-/**
- * 加法
- * @param env
- * @param thiz
- * @param a
- * @param b
- * @return
- */
-jint add(JNIEnv* env, jobject thiz, jint a, jint b){
-    int result = a + b;
-    return result;
-}
 
 /* This is a trivial JNI example where we use a native method
  * to return a new VM String. See the corresponding Java source
@@ -95,39 +95,59 @@ Java_com_rq_practice_jni_JNITools_stringFromJNI( JNIEnv* env,
 
 static char* CLASS_NAME = "com/rq/practice/jni/JNITools";
 
+/**
+ * 注册NativeMethod
+ * @param env
+ * @param className
+ * @param methods
+ * @param nativeMethodSize
+ * @return
+ */
 int registerNativeMethods(JNIEnv *env, char *className, JNINativeMethod *methods, int nativeMethodSize){
     jclass  clazz;
     clazz = (*env) -> FindClass(env, className);
+
     if (clazz == NULL){
+        LOGD("findClass fail!");
         return JNI_FALSE;
     }
-    if ((*env) -> RegisterNatives(env, className, methods, nativeMethodSize) < 0){
+
+    if ((*env) -> RegisterNatives(env, clazz, methods, nativeMethodSize) < 0){
+        LOGD("RegisterNatives fail!");
         return JNI_FALSE;
     }
     return JNI_TRUE;
 }
 
 /**
- *
+ * 动态注册
  * @param jvm
  * @param reserved
  * @return
  */
 JNIEXPORT jint JNI_OnLoad(JavaVM *jvm, void *reserved){
-    LOGD("OnLoad!");
+    LOGD("onLoad!");
     JNIEnv *env;
-    if ((*jvm) -> GetEnv(jvm, (void**) &env, JNI_VERSION_1_6) != JNI_OK)
-    {
+
+    if ((*jvm) -> GetEnv(jvm, (void**) &env, JNI_VERSION_1_4) != JNI_OK){
+        LOGD("GetEnv fail!");
         return JNI_ERR;
     }
+
     int size = sizeof(jniNativeMethods) / sizeof(jniNativeMethods[0]);
     if (!registerNativeMethods(env, CLASS_NAME, jniNativeMethods, size)){
+        LOGD("registerNativeMethods fail!");
         return JNI_ERR;
     }
 
-    return JNI_VERSION_1_6;
+    return JNI_VERSION_1_4;
 }
 
-JNIEXPORT void JNI_UnOnload(JavaVM *jvm, void *reserved){
+/**
+ * 解除动态注册
+ * @param jvm
+ * @param reserved
+ */
+JNIEXPORT void JNI_OnUnload(JavaVM *jvm, void *reserved){
     LOGD("unOnLoad!");
 }

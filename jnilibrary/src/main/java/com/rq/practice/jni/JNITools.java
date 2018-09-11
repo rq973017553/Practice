@@ -13,6 +13,6 @@ public class JNITools {
     public native int add(int a, int b);
 
     static {
-        System.loadLibrary("hello-jni");
+        System.loadLibrary("hello-lib");
     }
 }

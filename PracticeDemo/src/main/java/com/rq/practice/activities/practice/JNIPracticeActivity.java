@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.jni.JNITools;
 //import com.rq.practice.jni.JNITools;
 
 /**
@@ -28,15 +29,14 @@ public class JNIPracticeActivity extends BaseActivity {
 
     @Override
     public void initData() {
-//        String text;
-//        JNITools jniTools = new JNITools();
-//        int result = jniTools.add(23, 34);
-//        text = jniTools.stringFromJNI();
-//        text = String.valueOf(result);
-//        if (!TextUtils.isEmpty(text)){
-//            mShowJNIResult.setText(text);
-//        }else {
-//            mShowJNIResult.setText("null");
-//        }
+        String text;
+        JNITools jniTools = new JNITools();
+        int result = jniTools.add(23, 34);
+        text = String.valueOf(result);
+        if (!TextUtils.isEmpty(text)){
+            mShowJNIResult.setText(text);
+        }else {
+            mShowJNIResult.setText("null");
+        }
     }
 }
