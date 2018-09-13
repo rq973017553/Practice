@@ -36,6 +36,9 @@
 
         <!--ListView练习-->
         <activity android:name=".activities.practice.ListViewPracticeActivity"/>
+
+        <!--字体自定义View练习-->
+        <activity android:name=".activities.practice.ShowFontMetricsActivity"/>
     </application>
 
 </manifest>

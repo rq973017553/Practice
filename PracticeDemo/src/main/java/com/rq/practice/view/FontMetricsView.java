@@ -18,6 +18,8 @@ import com.rq.practice.utils.EasyLog;
  */
 public class FontMetricsView extends View{
 
+    private static final String TEST_TEXT = "En Taro Zeratul!";
+
     private TextPaint mTextPaint;
 
     private Paint mTopLinePaint;
@@ -31,10 +33,6 @@ public class FontMetricsView extends View{
     private Paint mBaseLinePaint;
 
     private Paint.FontMetrics mFontMetrics;
-
-    private Paint mArcPaint;
-
-    private Path mPath;
 
     public FontMetricsView(Context context) {
         this(context, null, 0);
@@ -50,13 +48,6 @@ public class FontMetricsView extends View{
     }
 
     private void initView(Context context, AttributeSet attrs, int defStyleAttr){
-        mPath = new Path();
-
-        mArcPaint = new Paint();
-        mArcPaint.setStyle(Paint.Style.STROKE);
-        mArcPaint.setColor(Color.BLUE);
-        mArcPaint.setAntiAlias(true);
-        mArcPaint.setStrokeWidth(2);
 
         mBaseLinePaint = new Paint();
         mBaseLinePaint.setStyle(Paint.Style.FILL);
@@ -123,8 +114,6 @@ public class FontMetricsView extends View{
     //mFontMetrics.ascent = ascent坐标 - baseY
     //mFontMetrics.descent = descent坐标 - baseY
 
-    RectF rectF = new RectF(100, 500, 300, 700);
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -133,24 +122,11 @@ public class FontMetricsView extends View{
         float bottom = mFontMetrics.bottom + baseLineY;
         float ascent = Math.abs(mFontMetrics.ascent + baseLineY);
         float descent = mFontMetrics.descent + baseLineY;
-        String text = "abcdgfhisk";
-        canvas.drawText(text, baseLineX, baseLineY, mTextPaint);
+        canvas.drawText(TEST_TEXT, baseLineX, baseLineY, mTextPaint);
         canvas.drawLine(baseLineX, baseLineY, 2000, baseLineY, mBaseLinePaint);
         canvas.drawLine(baseLineX, top, 2000, top, mBaseLinePaint);
         canvas.drawLine(baseLineX, bottom, 2000, bottom, mBaseLinePaint);
         canvas.drawLine(baseLineX, ascent, 2000, ascent, mBaseLinePaint);
         canvas.drawLine(baseLineX, descent, 2000, descent, mBaseLinePaint);
-
-//        mPath.addArc(rectF, 0, 90);
-//        mPath.addArc(rectF, 90, 90);
-//        mPath.addArc(rectF, 180, 90);
-
-        mPath.arcTo(rectF, 0, 90);
-        mPath.arcTo(rectF, 90, 90);
-        mPath.arcTo(rectF, 180, 90);
-        mPath.moveTo(500, 500);
-        mPath.quadTo(600, 250, 700, 500);
-        canvas.drawRect(rectF, mArcPaint);
-        canvas.drawPath(mPath, mArcPaint);
     }
 }

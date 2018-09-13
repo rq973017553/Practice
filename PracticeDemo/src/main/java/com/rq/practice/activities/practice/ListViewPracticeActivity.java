@@ -5,7 +5,6 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.MainActivity;
 import com.rq.practice.activities.base.BaseActivity;
 import com.rq.practice.adapter.PraListViewAdapter;
 import com.rq.practice.utils.EasyLog;
@@ -19,13 +18,20 @@ import java.util.List;
  */
 public class ListViewPracticeActivity extends BaseActivity {
 
+    /**
+     * 最后显示的pos
+     */
+    private int mLastVisiblePosition;
+
+    private int mScrollState;
+
     private int mTotalHeight;
 
     private ListView mListView;
 
     private PraListViewAdapter mAdapter;
 
-    private static int SCROLL_UP_STATE = 0;
+    private static int SCROLL_UPWARD_STATE = 0;
 
     private static int SCROLL_DOWN_STATE = 1;
 
@@ -51,8 +57,6 @@ public class ListViewPracticeActivity extends BaseActivity {
         mListView.setOnScrollListener(scrollListener);
     }
 
-    private int lvIndext;
-
     AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() {
         @Override
         public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -60,22 +64,24 @@ public class ListViewPracticeActivity extends BaseActivity {
                 case SCROLL_STATE_IDLE:
                     int scrolled = view.getLastVisiblePosition();
                     //滚动后下标大于滚动前 向下滚动了
-                    if(scrolled>lvIndext){
+                    if(scrolled> mLastVisiblePosition){
                         //scroll = false;
+                        mScrollState = SCROLL_DOWN_STATE;
                         EasyLog.v("向下滚动");
                     }
                     else {
                         //向上滚动了
                         //scroll = true;
+                        mScrollState = SCROLL_UPWARD_STATE;
                         EasyLog.v("向上滚动");
                     }
-                        EasyLog.v("SCROLL_STATE_IDLE");
+//                        EasyLog.v("SCROLL_STATE_IDLE");
                     break;
                 case SCROLL_STATE_FLING:
-                    EasyLog.v("SCROLL_STATE_FLING");
+//                    EasyLog.v("SCROLL_STATE_FLING");
                     break;
                 case SCROLL_STATE_TOUCH_SCROLL:
-                    lvIndext=view.getLastVisiblePosition();
+                    mLastVisiblePosition =view.getLastVisiblePosition();
                     EasyLog.v("SCROLL_STATE_TOUCH_SCROLL");
                     break;
             }
@@ -84,7 +90,7 @@ public class ListViewPracticeActivity extends BaseActivity {
 
         @Override
         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-            EasyLog.v("==================================================");
+//            EasyLog.v("==================================================");
 //            EasyLog.v("firstVisibleItem::"+String.valueOf(firstVisibleItem));
 //            EasyLog.v("visibleItemCount::"+String.valueOf(visibleItemCount));
 //            EasyLog.v("totalItemCount::"+String.valueOf(totalItemCount));
@@ -96,8 +102,8 @@ public class ListViewPracticeActivity extends BaseActivity {
 //                EasyLog.v("height::"+height);
 
                 mTotalHeight = mTotalHeight + height + Math.abs(top);
-                EasyLog.v("firstVisibleItem::"+firstVisibleItem);
-                EasyLog.v("visibleItemCount::"+visibleItemCount);
+//                EasyLog.v("firstVisibleItem::"+firstVisibleItem);
+//                EasyLog.v("visibleItemCount::"+visibleItemCount);
 //                EasyLog.v("mTotalHeight::"+mTotalHeight);
 //                EasyLog.v("top::"+top);
 //                EasyLog.v("result::"+String.valueOf(Math.abs(top)+firstVisibleItem*height));

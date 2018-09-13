@@ -13,6 +13,7 @@ import com.rq.practice.activities.practice.FragmentTabHostPractice;
 import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.ListViewPracticeActivity;
 import com.rq.practice.activities.practice.RxJavaPracticeActivity;
+import com.rq.practice.activities.practice.ShowFontMetricsActivity;
 import com.rq.practice.activities.practice.ViewPagerTabLayoutPractice;
 import com.rq.practice.adapter.MainAdapter;
 import com.rq.practice.adapter.base.IAdapterChildClickListener;
@@ -60,6 +61,7 @@ public class MainActivity extends BaseActivity {
         listData.add(createPracticeBean(ViewPagerTabLayoutPractice.class));
         listData.add(createPracticeBean(JNIPracticeActivity.class));
         listData.add(createPracticeBean(ListViewPracticeActivity.class));
+        listData.add(createPracticeBean(ShowFontMetricsActivity.class));
         mMainAdapter.setListData(listData);
     }
 
