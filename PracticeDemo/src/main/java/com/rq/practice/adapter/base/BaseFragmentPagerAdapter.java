@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * FragmentPagerAdapter基类
+ * 适用于相对静态的页面,数据不多,占用内存小的情况
  * @author rock you
  * @version [1.0.0, 2018.8.16]
  */

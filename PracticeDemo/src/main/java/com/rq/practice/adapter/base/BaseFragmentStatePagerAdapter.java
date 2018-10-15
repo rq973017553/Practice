@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * FragmentStatePagerAdapter基类
+ * 适用于数据动态性比较大,占用内存大的情况
  * @author rock you
  * @version [1.0.0, 2018.8.16]
  */

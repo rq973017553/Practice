@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.practice.CanvasPracticeActivity;
 import com.rq.practice.activities.practice.CustomScrollActivity;
 import com.rq.practice.activities.practice.FragmentTabHostPractice;
 import com.rq.practice.activities.practice.JNIPracticeActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity {
         listData.add(createPracticeBean(JNIPracticeActivity.class));
         listData.add(createPracticeBean(ListViewPracticeActivity.class));
         listData.add(createPracticeBean(ShowFontMetricsActivity.class));
+        listData.add(createPracticeBean(CanvasPracticeActivity.class));
         mMainAdapter.setListData(listData);
     }
 

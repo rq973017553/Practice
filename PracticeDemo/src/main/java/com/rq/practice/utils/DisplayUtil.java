@@ -82,4 +82,9 @@ public class DisplayUtil
     {
         return activity.getWindowManager().getDefaultDisplay().getWidth();
     }
+
+    public static int getDisplayHeight(final Activity activity)
+    {
+        return activity.getWindowManager().getDefaultDisplay().getHeight();
+    }
 }

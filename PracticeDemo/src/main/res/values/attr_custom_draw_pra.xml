@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DrawPracticeView">
+        <attr name="canvas_classify" format="enum">
+            <enum name="draw_circle" value="0"/>
+            <enum name="draw_rect" value="1"/>
+            <enum name="draw_round_point" value="2"/>
+            <enum name="draw_square_point" value="3"/>
+            <enum name="draw_butt_point" value="4"/>
+            <enum name="draw_bitmap" value="5"/>
+            <enum name="draw_zoom_bitmap" value="6"/>
+        </attr>
+    </declare-styleable>
+</resources>

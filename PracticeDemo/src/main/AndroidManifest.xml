@@ -39,6 +39,9 @@
 
         <!--字体自定义View练习-->
         <activity android:name=".activities.practice.ShowFontMetricsActivity"/>
+
+        <!--画布练习View的activity-->
+        <activity android:name=".activities.practice.CanvasPracticeActivity"/>
     </application>
 
 </manifest>
