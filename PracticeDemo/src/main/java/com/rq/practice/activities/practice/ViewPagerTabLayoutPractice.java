@@ -1,14 +1,11 @@
 package com.rq.practice.activities.practice;
 
-import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.adapter.MyFragmentStatePagerAdapter;
 import com.rq.practice.fragments.test.Fragment00;
 import com.rq.practice.fragments.test.Fragment01;
@@ -25,7 +22,7 @@ import java.util.List;
  * @author rock you
  * @version [1.0.0, 2018.8.16]
  */
-public class ViewPagerTabLayoutPractice extends BaseActivity {
+public class ViewPagerTabLayoutPractice extends BaseToolBarActivity {
 
     private TabLayout mTabLayout;
 

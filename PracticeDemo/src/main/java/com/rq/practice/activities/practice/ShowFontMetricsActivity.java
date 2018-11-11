@@ -1,7 +1,7 @@
 package com.rq.practice.activities.practice;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.base.BaseToolBarActivity;
 
 /**
  * 解决文字位置相关问题
@@ -10,7 +10,7 @@ import com.rq.practice.activities.base.BaseActivity;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class ShowFontMetricsActivity extends BaseActivity {
+public class ShowFontMetricsActivity extends BaseToolBarActivity {
 
     @Override
     public int getLayoutID() {

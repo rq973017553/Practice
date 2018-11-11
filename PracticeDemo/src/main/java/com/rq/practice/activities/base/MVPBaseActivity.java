@@ -17,7 +17,7 @@ import javax.inject.Inject;
  * @author rock you
  * @version [1.0.0 2018.8.3]
  */
-public abstract class MVPBaseActivity<P extends BasePresenter> extends BaseActivity implements BaseView {
+public abstract class MVPBaseActivity<P extends BasePresenter> extends BaseToolBarActivity implements BaseView {
 
     @Inject
     protected P mPresenter;

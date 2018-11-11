@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.activities.practice.CanvasPracticeActivity;
 import com.rq.practice.activities.practice.CustomScrollActivity;
 import com.rq.practice.activities.practice.FragmentTabHostPractice;
@@ -30,7 +30,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseToolBarActivity {
 
     private RecyclerView mRecyclerView;
 

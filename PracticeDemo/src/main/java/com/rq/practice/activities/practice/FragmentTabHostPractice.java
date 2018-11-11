@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.fragments.test.Fragment00;
 import com.rq.practice.fragments.test.Fragment01;
 import com.rq.practice.fragments.test.Fragment02;
@@ -22,7 +22,7 @@ import com.rq.practice.fragments.test.Fragment04;
  * @author rock you
  * @version 1.0.0
  */
-public class FragmentTabHostPractice extends BaseActivity {
+public class FragmentTabHostPractice extends BaseToolBarActivity {
 
     private static final int SIZE = 5;
 

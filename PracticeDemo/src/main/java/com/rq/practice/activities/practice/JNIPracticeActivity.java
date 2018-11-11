@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.jni.JNITools;
 //import com.rq.practice.jni.JNITools;
 
@@ -13,7 +13,7 @@ import com.rq.practice.jni.JNITools;
  * @author rock you
  * @version [1.0.0, 2018.8.28]
  */
-public class JNIPracticeActivity extends BaseActivity {
+public class JNIPracticeActivity extends BaseToolBarActivity {
 
     private TextView mShowJNIResult;
 

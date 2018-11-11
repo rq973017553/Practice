@@ -25,7 +25,7 @@ public class SystemBarUtils {
     private final static int FLAG_IMMERSIVE_STICKY = 0x00001000;
 
     /**
-     * vesion8.0状态栏
+     * version 8.0状态栏
      *
      * @param window
      * @param dark
@@ -100,6 +100,26 @@ public class SystemBarUtils {
         setStatusBarFullTransparent(window, true);
     }
 
+    /**
+     * 设置状态栏的颜色
+     * @param activity activity
+     * @param color color
+     */
+    public static void setStatusBarColor(Activity activity, int color) {
+        Window window = activity.getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            // 清除状态栏透明状态
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            // 设置修改状态栏
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            // 设置状态栏的颜色，和你的app主题或者标题栏颜色设置一致就ok了
+            window.setStatusBarColor(activity.getResources().getColor(color));
+        }
+    }
+
 
     /**
      * 全透明状态栏
@@ -127,7 +147,6 @@ public class SystemBarUtils {
         // 考虑低于23的情况下的文字显示
     }
 
-//    public static void setStatusBar
 
     public static void showNavigation(@Nullable View view)
     {

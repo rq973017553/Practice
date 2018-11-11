@@ -5,7 +5,7 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.adapter.PraListViewAdapter;
 import com.rq.practice.utils.EasyLog;
 
@@ -16,7 +16,7 @@ import java.util.List;
  * @author rock you
  * @version [1.0.0, 2018.8.31]
  */
-public class ListViewPracticeActivity extends BaseActivity {
+public class ListViewPracticeActivity extends BaseToolBarActivity {
 
     /**
      * 最后显示的pos

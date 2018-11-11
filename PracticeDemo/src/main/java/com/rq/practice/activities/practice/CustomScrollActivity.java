@@ -4,7 +4,7 @@ import android.os.Build;
 import android.view.ViewTreeObserver;
 
 import com.rq.practice.R;
-import com.rq.practice.activities.base.BaseActivity;
+import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.utils.EasyLog;
 import com.rq.practice.view.CustomHorizontalScrollView;
 
@@ -12,7 +12,7 @@ import com.rq.practice.view.CustomHorizontalScrollView;
  * 自定义ViewGroup(com.rq.view.CustomHorizontalScrollView)
  * Created by rock you on 2017/12/16.
  */
-public class CustomScrollActivity extends BaseActivity{
+public class CustomScrollActivity extends BaseToolBarActivity {
 
     private CustomHorizontalScrollView mCustomView;
 
