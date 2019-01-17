@@ -1,4 +1,4 @@
-package com.rq.utils;
+package com.rq.practice.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

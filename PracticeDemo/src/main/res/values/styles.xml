@@ -18,4 +18,12 @@
         <item name="android:dropDownHorizontalOffset">1dp</item>
         <item name="android:dropDownVerticalOffset">1dp</item>
     </style>
+
+    <!--自定义seek_bar_style-->
+    <style name="CustomSeekBarStyle" parent="@android:style/Widget.Holo.SeekBar">
+        <item name="android:maxHeight">2dp</item>
+        <item name="android:minHeight">2dp</item>
+        <item name="android:progressDrawable">@drawable/seek_indeterminate_bg</item>
+        <item name="android:thumb">@drawable/player_thumb</item>
+    </style>
 </resources>

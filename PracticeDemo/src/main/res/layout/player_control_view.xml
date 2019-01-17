@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/player_control"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/player_play"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:src="@drawable/player_start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/player_current_position"
+        android:layout_width="wrap_content"
+        android:layout_height="18.67dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:text="00:00"
+        android:textColor="@android:color/white"
+        android:textSize="13.33sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/player_seek_bar"
+        app:layout_constraintStart_toEndOf="@+id/player_play" />
+
+    <SeekBar
+        android:id="@+id/player_seek_bar"
+        style="@style/CustomSeekBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:thumbOffset="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/player_cutting_screen"
+        app:layout_constraintLeft_toRightOf="@id/player_current_position"
+        app:layout_constraintRight_toLeftOf="@id/player_total_position"
+        app:layout_constraintTop_toTopOf="@id/player_play" />
+
+    <TextView
+        android:id="@+id/player_total_position"
+        android:layout_width="wrap_content"
+        android:layout_height="18.67dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:text="00:00"
+        android:textColor="@android:color/white"
+        android:textSize="13.33sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/player_cutting_screen"
+        app:layout_constraintLeft_toRightOf="@id/player_seek_bar" />
+
+    <ImageView
+        android:id="@+id/player_cutting_screen"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:src="@drawable/player_full_screen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

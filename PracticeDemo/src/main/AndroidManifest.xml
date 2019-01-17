@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rq.practice">
-    
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name="com.rq.practice.PracticeApplication"
         android:allowBackup="false"
@@ -9,8 +13,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:configChanges="locale|layoutDirection"
             android:name=".activities.MainActivity"
+            android:configChanges="locale|layoutDirection"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,28 +24,34 @@
         </activity>
 
         <!--FragmentTabHost组件练习-->
-        <activity android:name=".activities.practice.FragmentTabHostPractice"/>
+        <activity android:name=".activities.practice.FragmentTabHostPractice" />
 
         <!--自定义View练习-->
-        <activity android:name=".activities.practice.CustomScrollActivity"/>
+        <activity android:name=".activities.practice.CustomScrollActivity" />
 
         <!--RxJava2练习-->
-        <activity android:name=".activities.practice.RxJavaPracticeActivity"/>
+        <activity android:name=".activities.practice.RxJavaPracticeActivity" />
 
         <!--ViewPager&TabLayout练习-->
-        <activity android:name=".activities.practice.ViewPagerTabLayoutPractice"/>
+        <activity android:name=".activities.practice.ViewPagerTabLayoutPractice" />
 
         <!--JNI练习Activity-->
-        <activity android:name=".activities.practice.JNIPracticeActivity"/>
+        <activity android:name=".activities.practice.JNIPracticeActivity" />
 
         <!--ListView练习-->
-        <activity android:name=".activities.practice.ListViewPracticeActivity"/>
+        <activity android:name=".activities.practice.ListViewPracticeActivity" />
 
         <!--字体自定义View练习-->
-        <activity android:name=".activities.practice.ShowFontMetricsActivity"/>
+        <activity android:name=".activities.practice.ShowFontMetricsActivity" />
 
         <!--画布练习View的activity-->
-        <activity android:name=".activities.practice.CanvasPracticeActivity"/>
+        <activity android:name=".activities.practice.CanvasPracticeActivity" />
+
+        <!--VideoView练习Activity-->
+        <activity android:name=".activities.practice.VideoViewPracticeActivity" />
+
+        <!--VideoView简单封装Activity-->
+        <activity android:name=".activities.practice.EasyVideoViewPracticeActivity" />
     </application>
 
 </manifest>
