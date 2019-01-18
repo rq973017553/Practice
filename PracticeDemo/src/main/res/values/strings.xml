@@ -6,4 +6,8 @@
     <string name="activity_run_rx_java_pra">运行RxJava2</string>
     <string name="activity_start_dagger2_pra">开始注入</string>
     <string name="activity_easy_video_view_prepare">播放准备</string>
+    <string name="activity_surface_view_pra_start">启动</string>
+    <string name="activity_surface_view_pra_pause">暂停</string>
+    <string name="activity_surface_view_pra_stop">停止</string>
+    <string name="activity_surface_view_pra_restart">重新启动</string>
 </resources>

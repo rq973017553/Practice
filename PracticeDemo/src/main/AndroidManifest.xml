@@ -52,6 +52,9 @@
 
         <!--VideoView简单封装Activity-->
         <activity android:name=".activities.practice.EasyVideoViewPracticeActivity" />
+
+        <!--SurfaceView练习-->
+        <activity android:name=".activities.practice.SurfaceViewPracticeActivity"/>
     </application>
 
 </manifest>

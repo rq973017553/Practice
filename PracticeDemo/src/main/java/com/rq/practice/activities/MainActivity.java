@@ -16,6 +16,7 @@ import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.ListViewPracticeActivity;
 import com.rq.practice.activities.practice.RxJavaPracticeActivity;
 import com.rq.practice.activities.practice.ShowFontMetricsActivity;
+import com.rq.practice.activities.practice.SurfaceViewPracticeActivity;
 import com.rq.practice.activities.practice.VideoViewPracticeActivity;
 import com.rq.practice.activities.practice.ViewPagerTabLayoutPractice;
 import com.rq.practice.adapter.MainAdapter;
@@ -68,6 +69,7 @@ public class MainActivity extends BaseToolBarActivity {
         listData.add(createPracticeBean(CanvasPracticeActivity.class));
         listData.add(createPracticeBean(VideoViewPracticeActivity.class));
         listData.add(createPracticeBean(EasyVideoViewPracticeActivity.class));
+        listData.add(createPracticeBean(SurfaceViewPracticeActivity.class));
         mMainAdapter.setListData(listData);
     }
 
