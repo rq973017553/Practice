@@ -54,13 +54,13 @@ public class RxJavaPractice {
      * </br>
      * BackpressureStrategy.DROP
      * </br>
-     * BackpresureStratgy.LATEST
+     * BackpressureStrategy.LATEST
      * </br>
-     * BackpresureStratgy.ERROR
+     * BackpressureStrategy.ERROR
      * </br>
-     * BackpresureStratgy.BUFFER
+     * BackpressureStrategy.BUFFER
      * </br>
-     * BackpresureStratgy.MISSING
+     * BackpressureStrategy.MISSING
      * </br>
      * 背压策略
      * </br>
@@ -106,6 +106,30 @@ public class RxJavaPractice {
                     @Override
                     public void onComplete() {
 
+                    }
+                });
+    }
+
+    /**
+     * Observable和Observer练习
+     * @param listener 接口
+     */
+    public void observableAndObserverPractice(final PracticeListener listener){
+
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                sendMsg(emitter);
+            }
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SimpleObserver<String>(){
+                    @Override
+                    public void onNext(String s) {
+                        super.onNext(s);
+                        if (listener != null){
+                            listener.showRxJavaData(s);
+                        }
                     }
                 });
     }
@@ -281,30 +305,6 @@ public class RxJavaPractice {
                 }
             }
         });
-    }
-
-    /**
-     * Observable和Observer练习
-     * @param listener 接口
-     */
-    public void observableAndObserverPractice(final PracticeListener listener){
-
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                sendMsg(emitter);
-            }
-        }).subscribeOn(Schedulers.io())
-          .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(new SimpleObserver<String>(){
-              @Override
-              public void onNext(String s) {
-                  super.onNext(s);
-                  if (listener != null){
-                      listener.showRxJavaData(s);
-                  }
-              }
-          });
     }
 
     private void sendMsg(ObservableEmitter<String> emitter) throws InterruptedException{

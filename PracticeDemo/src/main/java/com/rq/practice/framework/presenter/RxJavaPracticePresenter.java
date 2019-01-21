@@ -25,7 +25,9 @@ public class RxJavaPracticePresenter extends CommonPresenter<RxJavaPracticeContr
         RxJavaPractice.getInstance().flowablePractice(new RxJavaPractice.PracticeListener() {
             @Override
             public void showRxJavaData(String data) {
-                mView.showRxJavaResult(data);
+                if(mView != null){
+                   mView.showRxJavaResult(data);
+                }
             }
 
             @Override
