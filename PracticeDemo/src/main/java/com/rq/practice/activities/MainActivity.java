@@ -15,6 +15,7 @@ import com.rq.practice.activities.practice.FragmentTabHostPractice;
 import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.ListViewPracticeActivity;
 import com.rq.practice.activities.practice.RxJavaPracticeActivity;
+import com.rq.practice.activities.practice.ServicePracticeActivity;
 import com.rq.practice.activities.practice.ShowFontMetricsActivity;
 import com.rq.practice.activities.practice.SurfaceViewPracticeActivity;
 import com.rq.practice.activities.practice.VideoViewPracticeActivity;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseToolBarActivity {
         listData.add(createPracticeBean(VideoViewPracticeActivity.class));
         listData.add(createPracticeBean(EasyVideoViewPracticeActivity.class));
         listData.add(createPracticeBean(SurfaceViewPracticeActivity.class));
+        listData.add(createPracticeBean(ServicePracticeActivity.class));
         mMainAdapter.setListData(listData);
     }
 

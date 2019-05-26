@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="com.rq.practice.PracticeApplication"
@@ -54,7 +54,27 @@
         <activity android:name=".activities.practice.EasyVideoViewPracticeActivity" />
 
         <!--SurfaceView练习-->
-        <activity android:name=".activities.practice.SurfaceViewPracticeActivity"/>
+        <activity android:name=".activities.practice.SurfaceViewPracticeActivity" />
+
+        <!--Service练习-->
+        <activity android:name=".activities.practice.ServicePracticeActivity" />
+
+        <!--服务-->
+        <service
+            android:name=".service.ZeusService"
+            android:exported="true"
+            android:permission="com.rq.practice.service.authentication"
+            android:process=":zeus">
+            <intent-filter>
+                <action android:name="com.rq.practice.zeus.action" />
+            </intent-filter>
+        </service>
+
     </application>
 
+    <!--自定义给Services使用的权限-->
+    <permission
+        android:name="com.rq.practice.service.authentication"
+        android:permissionGroup="com.rq.practice.service-group"
+        android:protectionLevel="signature" />
 </manifest>

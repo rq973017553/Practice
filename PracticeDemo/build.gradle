@@ -15,6 +15,9 @@ android {
     sourceSets{
         main{
             jniLibs.srcDirs = ['libs']
+
+            // 保证放在aidl中的java类可以被编译
+            java.srcDirs = ['src/main/java', 'src/main/aidl']
         }
     }
 
