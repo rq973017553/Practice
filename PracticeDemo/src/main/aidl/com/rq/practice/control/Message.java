@@ -3,6 +3,8 @@ package com.rq.practice.control;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+// https://www.jianshu.com/p/a8e43ad5d7d2
+// 实现Parcelable可以使用alt+enter
 public class Message implements Parcelable {
 
     private String mCommand;
