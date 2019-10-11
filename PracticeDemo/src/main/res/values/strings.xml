@@ -12,7 +12,10 @@
     <string name="activity_surface_view_pra_restart">重新启动</string>
     <string name="activity_service_pra_show_msg">显示数据</string>
     <string name="activity_service_pra_start_service">开启服务</string>
+    <string name="activity_service_pra_bind_service">绑定服务</string>
     <string name="activity_service_pra_stop_service">停止服务</string>
+    <string name="activity_service_pra_unbind_service">解绑服务</string>
     <string name="activity_service_pra_start_timing">开始计时</string>
+    <string name="activity_service_pra_pause_timing">暂停计时</string>
     <string name="activity_service_pra_stop_timing">停止计时</string>
 </resources>

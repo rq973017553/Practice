@@ -8,23 +8,30 @@ import android.os.RemoteException;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.control.IControl;
+import com.rq.practice.control.IReceiveListener;
 import com.rq.practice.control.Message;
+import com.rq.practice.control.Receive;
+import com.rq.practice.service.ServiceManager;
+import com.rq.practice.service.ZenusControl;
 
 public class ServicePracticeActivity extends BaseToolBarActivity {
 
-    private Button mStartServices;
+    private Intent intent = null;
 
-    private Button mStopServices;
+    private ServiceManager serviceManager = null;
 
     private Button mStartTiming;
 
+    private Button mPauseTiming;
+
     private Button mStopTiming;
 
-    private IControl control;
+    private IControl mControl;
 
     private TextView mShowMsg;
 
@@ -35,42 +42,49 @@ public class ServicePracticeActivity extends BaseToolBarActivity {
 
     @Override
     public void bindView() {
-        mStartServices = findViewById(R.id.start_service);
-        mStopServices = findViewById(R.id.stop_service);
         mStartTiming = findViewById(R.id.start_timing);
+        mPauseTiming = findViewById(R.id.pause_timing);
         mStopTiming = findViewById(R.id.stop_timing);
         mShowMsg = findViewById(R.id.show_msg);
         mStartTiming.setOnClickListener(click);
+        mPauseTiming.setOnClickListener(click);
         mStopTiming.setOnClickListener(click);
-        mStartServices.setOnClickListener(click);
-        mStopServices.setOnClickListener(click);
     }
 
     View.OnClickListener click = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Message message = new Message();
             switch (view.getId()){
-                case R.id.start_service:
-                    Intent intent = new Intent();
-                    intent.setAction("com.rq.practice.zeus.action");
-                    intent.setPackage("com.rq.practice");
-                    bindService(intent, connection, BIND_AUTO_CREATE);
-                    break;
-                case R.id.stop_service:
-                    unbindService(connection);
-                    break;
                 case R.id.start_timing:
-                    Message message = new Message();
-                    message.setCommand("test");
+                    message.setCommand(ZenusControl.COMMAND.START_COMMAND);
                     try {
-                        if (control != null){
-                            control.control(message);
+                        if (mControl != null){
+                            mControl.control(message);
+                        }
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case R.id.pause_timing:
+                    message.setCommand(ZenusControl.COMMAND.PAUSE_COMMAND);
+                    try {
+                        if (mControl != null){
+                            mControl.control(message);
                         }
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
                     break;
                 case R.id.stop_timing:
+                    message.setCommand(ZenusControl.COMMAND.STOP_COMMAND);
+                    try {
+                        if (mControl != null){
+                            mControl.control(message);
+                        }
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
                     break;
             }
         }
@@ -78,38 +92,56 @@ public class ServicePracticeActivity extends BaseToolBarActivity {
 
     @Override
     public void initData() {
-
+        serviceManager = new ServiceManager(this);
+        intent = new Intent("com.rq.practice.zeus.action");
+        intent.setPackage("com.rq.practice");
+        serviceManager.startService(intent);
+        serviceManager.bindService(intent, connection, BIND_AUTO_CREATE);
     }
 
     ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            control = IControl.Stub.asInterface(iBinder);
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    if (control != null){
-                        String msg = "null";
-                        try {
-                            msg = control.receive();
-                        } catch (RemoteException e) {
-                            e.printStackTrace();
+            Toast.makeText(ServicePracticeActivity.this,
+                    "已经连接!", Toast.LENGTH_SHORT).show();
+            mControl = IControl.Stub.asInterface(iBinder);
+            if (mControl != null){
+                try {
+                    mControl.setReceiveListener(new IReceiveListener.Stub() {
+                        @Override
+                        public void onReceive(final Receive receive){
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (mControl != null) {
+                                        if (receive != null) {
+                                            int text = receive.getReceive();
+                                            mShowMsg.setText(String.valueOf(text));
+                                        } else {
+                                            mShowMsg.setText("无数据!");
+                                        }
+                                    }
+                                }
+                            });
                         }
-                        mShowMsg.setText(msg);
-                    }
+                    });
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
-            });
+            }
         }
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
-
+            Toast.makeText(ServicePracticeActivity.this,
+                    "连接断开!", Toast.LENGTH_SHORT).show();
         }
     };
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(connection);
+        serviceManager.unBindService(connection);
+        serviceManager.stopService(intent);
     }
 }

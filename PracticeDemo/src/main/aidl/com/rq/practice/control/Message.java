@@ -7,38 +7,34 @@ import android.os.Parcelable;
 // 实现Parcelable可以使用alt+enter
 public class Message implements Parcelable {
 
-    private String mCommand;
+    private String mID;
 
-    private int mInitialValue;
+    private int mCommand;
 
-    public String getCommand() {
-        return mCommand;
+    public Message(){
+        // Empty Method
     }
 
-    public void setCommand(String command) {
-        this.mCommand = command;
+    protected Message(Parcel in) {
+        mID = in.readString();
+        mCommand = in.readInt();
     }
 
-    public int getInitialValue() {
-        return mInitialValue;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mID);
+        dest.writeInt(mCommand);
     }
 
-    public void setInitialValue(int initialValue) {
-        this.mInitialValue = initialValue;
-    }
-
-    protected Message(Parcel parcel) {
-        mInitialValue = parcel.readInt();
-        mCommand = parcel.readString();
-    }
-
-    public Message() {
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Message> CREATOR = new Creator<Message>() {
         @Override
-        public Message createFromParcel(Parcel parcel) {
-            return new Message(parcel);
+        public Message createFromParcel(Parcel in) {
+            return new Message(in);
         }
 
         @Override
@@ -47,14 +43,19 @@ public class Message implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getID() {
+        return mID;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(mInitialValue);
-        parcel.writeString(mCommand);
+    public void setID(String id) {
+        this.mID = id;
+    }
+
+    public int getCommand() {
+        return mCommand;
+    }
+
+    public void setCommand(int command) {
+        this.mCommand = command;
     }
 }
