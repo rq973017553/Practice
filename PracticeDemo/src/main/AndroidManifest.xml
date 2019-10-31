@@ -49,7 +49,7 @@
         <activity android:name=".activities.practice.CanvasPracticeActivity" />
 
         <!--VideoView练习Activity-->
-        <activity android:name=".activities.practice.VideoViewPracticeActivity" />
+        <activity android:name=".activities.practice.ConstraintLayoutPracticeActivity" />
 
         <!--VideoView简单封装Activity-->
         <activity android:name=".activities.practice.EasyVideoViewPracticeActivity" />

@@ -51,6 +51,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         ActivityUtils.onActivityDestroy(this);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        ActivityUtils.onActivityRestart(this);
+    }
+
     protected void startActivity(Class<? extends Activity> clazz){
         startActivity(new Intent(this, clazz));
     }

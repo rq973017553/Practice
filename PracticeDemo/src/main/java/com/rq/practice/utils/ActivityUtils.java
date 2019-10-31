@@ -47,6 +47,11 @@ public class ActivityUtils {
         // Empty Method
     }
 
+    public static void onActivityRestart(Activity activity){
+        checkActivityNull(activity);
+        // Empty Method
+    }
+
     public static void finishAll(){
         for (WeakReference<Activity> weakActivity :STACK){
             Activity activity = weakActivity.get();

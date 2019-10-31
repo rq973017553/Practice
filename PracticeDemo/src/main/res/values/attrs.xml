@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--练习Draw的View-->
     <declare-styleable name="DrawPracticeView">
         <attr name="canvas_classify" format="enum">
             <enum name="draw_circle" value="0"/>
@@ -10,5 +11,10 @@
             <enum name="draw_bitmap" value="5"/>
             <enum name="draw_zoom_bitmap" value="6"/>
         </attr>
+    </declare-styleable>
+
+    <!-- 倒计时TextView -->
+    <declare-styleable name="CountDownTextView">
+        <attr name="countdownFormat" format="string"/>
     </declare-styleable>
 </resources>

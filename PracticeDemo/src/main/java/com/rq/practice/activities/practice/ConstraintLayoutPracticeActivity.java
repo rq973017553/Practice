@@ -9,7 +9,7 @@ import com.rq.practice.utils.EasyLog;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-public class VideoViewPracticeActivity extends BaseToolBarActivity {
+public class ConstraintLayoutPracticeActivity extends BaseToolBarActivity {
 
 
     @Override
