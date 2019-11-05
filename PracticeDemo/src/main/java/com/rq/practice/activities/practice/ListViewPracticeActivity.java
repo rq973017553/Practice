@@ -3,6 +3,7 @@ package com.rq.practice.activities.practice;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseToolBarActivity;
@@ -48,7 +49,7 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
     @Override
     public void initData() {
         List<String> listData = new ArrayList<>();
-        for (int i = 1; i <= 100; i++){
+        for (int i = 1; i <= 100; i++) {
             listData.add(String.valueOf(i));
         }
         mAdapter = new PraListViewAdapter(ListViewPracticeActivity.this);
@@ -60,16 +61,15 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
     AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() {
         @Override
         public void onScrollStateChanged(AbsListView view, int scrollState) {
-            switch (scrollState){
+            switch (scrollState) {
                 case SCROLL_STATE_IDLE:
                     int scrolled = view.getLastVisiblePosition();
                     //滚动后下标大于滚动前 向下滚动了
-                    if(scrolled> mLastVisiblePosition){
+                    if (scrolled > mLastVisiblePosition) {
                         //scroll = false;
                         mScrollState = SCROLL_DOWN_STATE;
                         EasyLog.v("向下滚动");
-                    }
-                    else {
+                    } else {
                         //向上滚动了
                         //scroll = true;
                         mScrollState = SCROLL_UPWARD_STATE;
@@ -81,7 +81,7 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
 //                    EasyLog.v("SCROLL_STATE_FLING");
                     break;
                 case SCROLL_STATE_TOUCH_SCROLL:
-                    mLastVisiblePosition =view.getLastVisiblePosition();
+                    mLastVisiblePosition = view.getLastVisiblePosition();
                     EasyLog.v("SCROLL_STATE_TOUCH_SCROLL");
                     break;
             }
@@ -89,24 +89,28 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
 
 
         @Override
-        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        public void onScroll(AbsListView listView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 //            EasyLog.v("==================================================");
-//            EasyLog.v("firstVisibleItem::"+String.valueOf(firstVisibleItem));
-//            EasyLog.v("visibleItemCount::"+String.valueOf(visibleItemCount));
-//            EasyLog.v("totalItemCount::"+String.valueOf(totalItemCount));
-            View childView = view.getChildAt(0);
-            View firstVisibleView = view.getChildAt(firstVisibleItem);
-            if (childView != null && firstVisibleView != null){
-                int top = childView.getTop();
-                int height = firstVisibleView.getHeight();
-//                EasyLog.v("height::"+height);
+//            EasyLog.v("firstVisibleItem::"+firstVisibleItem);
+//            EasyLog.v("visibleItemCount::"+visibleItemCount);
+//            EasyLog.v("totalItemCount::"+totalItemCount);
 
-                mTotalHeight = mTotalHeight + height + Math.abs(top);
-//                EasyLog.v("firstVisibleItem::"+firstVisibleItem);
-//                EasyLog.v("visibleItemCount::"+visibleItemCount);
-//                EasyLog.v("mTotalHeight::"+mTotalHeight);
-//                EasyLog.v("top::"+top);
-//                EasyLog.v("result::"+String.valueOf(Math.abs(top)+firstVisibleItem*height));
+            if (listView != null) {
+                View firstVisibleView = listView.getChildAt(firstVisibleItem);
+                if (listView.getChildCount() > 0 && listView.getFirstVisiblePosition() == 0) {
+                    View childView = listView.getChildAt(0);
+                    if (firstVisibleView != null) {
+                        int top = childView.getTop();
+                        int height = firstVisibleView.getHeight();
+                        mTotalHeight = mTotalHeight + height + Math.abs(top);
+                    }
+                    if (childView != null) {
+                        if (childView.getTop() >= childView.getPaddingTop()) {
+                            Toast.makeText(ListViewPracticeActivity.this,
+                                    "列表的第一个item显示!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
             }
         }
     };
