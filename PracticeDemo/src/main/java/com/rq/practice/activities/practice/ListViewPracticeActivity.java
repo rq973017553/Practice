@@ -1,5 +1,6 @@
 package com.rq.practice.activities.practice;
 
+import android.graphics.Rect;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
@@ -90,25 +91,28 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
 
         @Override
         public void onScroll(AbsListView listView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//            EasyLog.v("==================================================");
-//            EasyLog.v("firstVisibleItem::"+firstVisibleItem);
-//            EasyLog.v("visibleItemCount::"+visibleItemCount);
-//            EasyLog.v("totalItemCount::"+totalItemCount);
+//            EasyLog.e("==================================================");
+//            EasyLog.e("firstVisibleItem::"+firstVisibleItem);
+//            EasyLog.e("visibleItemCount::"+visibleItemCount);
+//            EasyLog.e("totalItemCount::"+totalItemCount);
 
             if (listView != null) {
-                View firstVisibleView = listView.getChildAt(firstVisibleItem);
                 if (listView.getChildCount() > 0 && listView.getFirstVisiblePosition() == 0) {
+                    View firstVisibleView = listView.getChildAt(firstVisibleItem);
                     View childView = listView.getChildAt(0);
-                    if (firstVisibleView != null) {
-                        int top = childView.getTop();
-                        int height = firstVisibleView.getHeight();
-                        mTotalHeight = mTotalHeight + height + Math.abs(top);
+
+                    boolean isVisibility = childView.getLocalVisibleRect(new Rect());
+                    if (!isVisibility){
+                        EasyLog.e("列表的第一个item隐藏!");
                     }
-                    if (childView != null) {
-                        if (childView.getTop() >= childView.getPaddingTop()) {
-                            Toast.makeText(ListViewPracticeActivity.this,
-                                    "列表的第一个item显示!", Toast.LENGTH_SHORT).show();
-                        }
+
+                    int top = childView.getTop();
+                    int height = firstVisibleView.getHeight();
+                    mTotalHeight = mTotalHeight + height + Math.abs(top);
+
+                    if (childView.getTop() >= childView.getPaddingTop()) {
+                        Toast.makeText(ListViewPracticeActivity.this,
+                                "列表的第一个item显示!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
