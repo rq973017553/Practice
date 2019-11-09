@@ -1,6 +1,5 @@
 package com.rq.practice.activities.practice;
 
-import android.graphics.Rect;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
@@ -97,25 +96,39 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
 //            EasyLog.e("totalItemCount::"+totalItemCount);
 
             if (listView != null) {
-                if (listView.getChildCount() > 0 && listView.getFirstVisiblePosition() == 0) {
-                    View firstVisibleView = listView.getChildAt(firstVisibleItem);
-                    View childView = listView.getChildAt(0);
+                if (isScrollToTop(listView)) {
+                    Toast.makeText(ListViewPracticeActivity.this,
+                            "列表到顶了!", Toast.LENGTH_SHORT).show();
+                }
 
-                    boolean isVisibility = childView.getLocalVisibleRect(new Rect());
-                    if (!isVisibility){
-                        EasyLog.e("列表的第一个item隐藏!");
-                    }
-
-                    int top = childView.getTop();
-                    int height = firstVisibleView.getHeight();
-                    mTotalHeight = mTotalHeight + height + Math.abs(top);
-
-                    if (childView.getTop() >= childView.getPaddingTop()) {
-                        Toast.makeText(ListViewPracticeActivity.this,
-                                "列表的第一个item显示!", Toast.LENGTH_SHORT).show();
-                    }
+                if (isScrollToBottom(listView)) {
+                    Toast.makeText(ListViewPracticeActivity.this,
+                            "列表到底了!", Toast.LENGTH_SHORT).show();
                 }
             }
         }
     };
+
+    private boolean isScrollToTop(AbsListView listView) {
+        int firstVisiblePosition = listView.getFirstVisiblePosition();
+        if (firstVisiblePosition == 0) {
+            View firstView = listView.getChildAt(firstVisiblePosition);
+            if (firstView != null && firstView.getTop() == firstView.getPaddingTop()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isScrollToBottom(AbsListView listView) {
+        int firstVisiblePosition = listView.getFirstVisiblePosition();
+        int lastVisiblePosition = listView.getLastVisiblePosition();
+        if (lastVisiblePosition == listView.getCount() - 1) {
+            View lastView = listView.getChildAt(lastVisiblePosition - firstVisiblePosition);
+            if (lastView != null && lastView.getBottom() == listView.getHeight() + lastView.getPaddingBottom()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
