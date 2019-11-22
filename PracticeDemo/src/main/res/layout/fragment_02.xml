@@ -8,7 +8,7 @@
         android:id="@+id/test_ima_02"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@mipmap/star_craft_02"
+        android:src="@drawable/star_craft_02"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

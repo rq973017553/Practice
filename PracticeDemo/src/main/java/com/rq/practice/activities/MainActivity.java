@@ -20,6 +20,7 @@ import com.rq.practice.activities.practice.ShowFontMetricsActivity;
 import com.rq.practice.activities.practice.SurfaceViewPracticeActivity;
 import com.rq.practice.activities.practice.ConstraintLayoutPracticeActivity;
 import com.rq.practice.activities.practice.ViewPagerTabLayoutPractice;
+import com.rq.practice.activities.practice.WebViewPlayerActivity;
 import com.rq.practice.adapter.MainAdapter;
 import com.rq.practice.adapter.base.IAdapterChildClickListener;
 import com.rq.practice.bean.PracticeBean;
@@ -72,6 +73,7 @@ public class MainActivity extends BaseToolBarActivity {
         listData.add(createPracticeBean(EasyVideoViewPracticeActivity.class));
         listData.add(createPracticeBean(SurfaceViewPracticeActivity.class));
         listData.add(createPracticeBean(ServicePracticeActivity.class));
+        listData.add(createPracticeBean(WebViewPlayerActivity.class));
         mMainAdapter.setListData(listData);
     }
 

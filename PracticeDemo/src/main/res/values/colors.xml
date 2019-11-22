@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorYellow">#FAA519</color>
+    <!--WebView的标题颜色-->
+    <color name="web_view_color">#a5a9a0</color>
 </resources>
