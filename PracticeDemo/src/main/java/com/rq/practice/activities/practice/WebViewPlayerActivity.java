@@ -19,7 +19,8 @@ import com.rq.practice.view.web.RichWebView;
 // https://blog.csdn.net/carson_ho/article/details/64904635
 // https://blog.csdn.net/wbwjx/article/details/54645313
 // https://www.cnblogs.com/renhui/p/5893593.html
-//https://www.jianshu.com/p/dd53094b580a
+// https://www.jianshu.com/p/dd53094b580a
+// https://www.jianshu.com/p/4aed5c1230dc
 // WebView的相关知识
 
 public class WebViewPlayerActivity extends CommonActivity {
