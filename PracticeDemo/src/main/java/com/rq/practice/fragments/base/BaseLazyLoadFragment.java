@@ -12,6 +12,8 @@ import android.view.ViewGroup;
  * (1)配合ViewPager使用的时候，由于ViewPager的预加载机制。
  * 导致无法配合onResume和onStop统计用户查看
  * (2)有可能预加载的页面需要加载大量图片，加载比较耗时。
+ * (3)如果出现页面空白的情况，可以复现ViewPager的destroyItem，同时去掉super方法
+ * 参考链接:https://www.jianshu.com/p/254dc5ddffea
  * @author rock you
  * @version [1.0.0 2018.8.16]
  */
@@ -24,8 +26,16 @@ public abstract class BaseLazyLoadFragment extends BaseFragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        isCreateView = true;
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    // onCreateView -> onViewCreated -> onActivityCreated
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (mView != null) {
+            isCreateView = true;
+        }
     }
 
     @Override
@@ -44,6 +54,9 @@ public abstract class BaseLazyLoadFragment extends BaseFragment{
      */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
+        if (mView == null) {
+            return;
+        }
         if (isVisibleToUser){
             // fragment可见
             isShowUI = true;
