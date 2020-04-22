@@ -34,6 +34,7 @@ public abstract class BaseFragment extends Fragment {
         ViewParent viewParent = mView.getParent();
         if (viewParent != null){
             // 防止多次加载View
+            // 在使用FragmentTabHost的时候，每次选中fragment都会调用一次onCreateView
             ((ViewGroup)viewParent).removeView(mView);
         }
         return mView;

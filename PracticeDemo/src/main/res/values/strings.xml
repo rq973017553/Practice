@@ -18,4 +18,5 @@
     <string name="activity_service_pra_start_timing">开始计时</string>
     <string name="activity_service_pra_pause_timing">暂停计时</string>
     <string name="activity_service_pra_stop_timing">停止计时</string>
+    <string name="activity_photo_select">照片选择</string>
 </resources>
