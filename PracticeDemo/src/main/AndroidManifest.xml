@@ -85,6 +85,9 @@
         <!--图片编辑Activity-->
         <activity android:name=".activities.practice.edit.PictureEditActivity"/>
 
+        <!--Android SQLite练习Activity-->
+        <activity android:name=".activities.practice.AndroidSQLitePracticeActivity"/>
+
         <!--服务-->
         <service
             android:name=".service.ZeusService"

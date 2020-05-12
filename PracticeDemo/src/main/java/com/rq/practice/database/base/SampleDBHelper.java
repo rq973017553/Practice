@@ -1,6 +1,7 @@
 package com.rq.practice.database.base;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 /**
  * SampleDBHelper
@@ -19,13 +20,13 @@ public class SampleDBHelper extends DBHelper {
     }
 
     @Override
-    protected void onUpgrade(int version) {
-        //Empty
+    protected void onUpgrade(SQLiteDatabase db, int version) {
+
     }
 
     @Override
     protected void onDropTable() {
-        //Empty
+
     }
 
     @Override

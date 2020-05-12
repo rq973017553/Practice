@@ -53,13 +53,13 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
 
     // retrofit2核心
-    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
-    // retrofit2配合rxjava
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
-    // retrofit2配合gson
-    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
-    // gson
-    implementation 'com.google.code.gson:gson:2.8.6'
+//    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+//    // retrofit2配合rxjava
+//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
+//    // retrofit2配合gson
+//    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+//    // gson
+//    implementation 'com.google.code.gson:gson:2.8.6'
 
     // okhttp3
     implementation 'com.squareup.okhttp3:okhttp:4.5.0'

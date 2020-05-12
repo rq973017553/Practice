@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseToolBarActivity;
+import com.rq.practice.activities.practice.AndroidSQLitePracticeActivity;
 import com.rq.practice.activities.practice.CanvasPracticeActivity;
 import com.rq.practice.activities.practice.CustomScrollActivity;
 import com.rq.practice.activities.practice.EasyVideoViewPracticeActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends BaseToolBarActivity {
     @Override
     public void initData() {
         List<PracticeBean> listData = new ArrayList<>();
+        listData.add(createPracticeBean(AndroidSQLitePracticeActivity.class));
         listData.add(createPracticeBean(PhotoSelectActivity.class));
         listData.add(createPracticeBean(FragmentTabHostPractice.class));
         listData.add(createPracticeBean(CustomScrollActivity.class));

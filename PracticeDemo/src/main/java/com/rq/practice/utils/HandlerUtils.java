@@ -1,29 +1,28 @@
 package com.rq.practice.utils;
 
-import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 
 import java.lang.ref.WeakReference;
 
-public abstract class HandlerUtils<T extends Activity> extends Handler {
+public abstract class HandlerUtils<T> extends Handler {
 
     // WeakReference持有Activity
-    private WeakReference<T> mWeakActivity;
+    private WeakReference<T> mReference;
 
-    public HandlerUtils(T activity) {
-        this.mWeakActivity = new WeakReference<>(activity);
+    public HandlerUtils(T reference) {
+        this.mReference = new WeakReference<>(reference);
     }
 
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
-        T activity = null;
-        if (mWeakActivity != null) {
-            activity = mWeakActivity.get();
+        T reference = null;
+        if (mReference != null) {
+            reference = mReference.get();
         }
-        handleMessage(activity, msg);
+        handleMessage(reference, msg);
     }
 
-    public abstract void handleMessage(T activity, Message message);
+    public abstract void handleMessage(T reference, Message message);
 }

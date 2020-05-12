@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,9 @@ import android.view.ViewParent;
 public abstract class BaseFragment extends Fragment {
 
     protected View mView;
+
+    // 当前显示的fragment
+    private Fragment mContent;
 
     @Nullable
     @Override
@@ -80,6 +85,29 @@ public abstract class BaseFragment extends Fragment {
 
     protected void startActivity(Class<? extends Activity> clazz){
         startActivity(new Intent(getActivity(), clazz));
+    }
+
+
+    protected void addHideFragment(Fragment to, int id) {
+        if (mContent != to) {
+            FragmentManager fragmentManager = getFragmentManager();
+            if (fragmentManager == null) {
+                return;
+            }
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            if (!to.isAdded()) { // 先判断是否被add过
+                // 隐藏当前的fragment，add下一个到Activity中
+                if (mContent == null) {
+                    transaction.add(id, to).commitAllowingStateLoss();
+                } else {
+                    transaction.hide(mContent).add(id, to).commitAllowingStateLoss();
+                }
+            } else {
+                // 隐藏当前的fragment，显示下一个
+                transaction.hide(mContent).show(to).commitAllowingStateLoss();
+            }
+            mContent = to;
+        }
     }
 
 }
