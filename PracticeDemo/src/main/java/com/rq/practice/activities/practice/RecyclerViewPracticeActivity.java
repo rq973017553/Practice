@@ -59,6 +59,8 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
         testScrollToPositionWithOffset.setOnClickListener(clickListener);
         closeLoopScroll.setOnClickListener(clickListener);
 
+        closeLoopScroll.setText("关闭循环滚动");
+
         mRecyclerView = findViewById(R.id.recycler_view);
 
         // 设置RecyclerView列表形式
@@ -99,9 +101,6 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
         @Override
         public void onClick(View v) {
             String pos = recyclerEdit.getText().toString();
-            if (TextUtils.isEmpty(pos)){
-                return;
-            }
             switch (v.getId()){
                 case R.id.close_loop_scroll:
                     switch_close_scroll = !switch_close_scroll;
@@ -115,19 +114,25 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
                     }
                     break;
                 case R.id.test_smooth_scroll_to_position:
-                    mRecyclerView.smoothScrollToPosition(Integer.valueOf(pos));
+                    if (!TextUtils.isEmpty(pos)){
+                        mRecyclerView.smoothScrollToPosition(Integer.valueOf(pos));
+                    }
                     break;
                 case R.id.test_smooth_scroll_by:
-                    int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-                    int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
-                    int position= Integer.valueOf(pos);
-                    if (position > firstVisibleItemPosition && position < lastVisibleItemPosition){
-                        View childView = mRecyclerView.getChildAt(position-firstVisibleItemPosition);
-                        mRecyclerView.smoothScrollBy(0, childView.getTop());
+                    if (!TextUtils.isEmpty(pos)){
+                        int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+                        int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
+                        int position= Integer.valueOf(pos);
+                        if (position > firstVisibleItemPosition && position < lastVisibleItemPosition){
+                            View childView = mRecyclerView.getChildAt(position-firstVisibleItemPosition);
+                            mRecyclerView.smoothScrollBy(0, childView.getTop());
+                        }
                     }
                     break;
                 case R.id.test_scroll_to_position_with_offset:
-                    layoutManager.scrollToPositionWithOffset(Integer.valueOf(pos), 0);
+                    if (!TextUtils.isEmpty(pos)){
+                        layoutManager.scrollToPositionWithOffset(Integer.valueOf(pos), 0);
+                    }
                     break;
             }
         }
