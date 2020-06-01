@@ -24,6 +24,22 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+
+//    subprojects {
+//        project.configurations.all {
+//            resolutionStrategy.eachDependency { details ->
+//                if (details.requested.group == 'com.android.support'
+//                        && !details.requested.name.contains('multidex') ) {
+//                    details.useVersion "28.0.0"
+//                }
+//
+//                if (details.requested.group == 'androidx.core'
+//                        && !details.requested.name.contains('androidx') ) {
+//                    details.useVersion "1.0.1"
+//                }
+//            }
+//        }
+//    }
 }
 
 // 该配置会被应用到所有的子工程

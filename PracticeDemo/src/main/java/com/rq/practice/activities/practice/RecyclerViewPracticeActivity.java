@@ -4,7 +4,10 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.rq.practice.R;
@@ -28,6 +31,16 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
 
     private TestScrollHandler testScrollHandler;
 
+    private Button testSmoothScrollToPosition;
+    private Button testSmoothScrollBy;
+    private Button testScrollToPositionWithOffset;
+    private Button closeLoopScroll;
+    private EditText recyclerEdit;
+
+    private boolean switch_close_scroll = true;
+
+    private LinearLayoutManager layoutManager;
+
     @Override
     public int getLayoutID() {
         return R.layout.activity_recyclerview_pra;
@@ -35,10 +48,21 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
 
     @Override
     public void bindView() {
+        recyclerEdit = findViewById(R.id.recycler_edit);
+        closeLoopScroll = findViewById(R.id.close_loop_scroll);
+        testSmoothScrollToPosition = findViewById(R.id.test_smooth_scroll_to_position);
+        testSmoothScrollBy = findViewById(R.id.test_smooth_scroll_by);
+        testScrollToPositionWithOffset = findViewById(R.id.test_scroll_to_position_with_offset);
+
+        testSmoothScrollToPosition.setOnClickListener(clickListener);
+        testSmoothScrollBy.setOnClickListener(clickListener);
+        testScrollToPositionWithOffset.setOnClickListener(clickListener);
+        closeLoopScroll.setOnClickListener(clickListener);
+
         mRecyclerView = findViewById(R.id.recycler_view);
 
         // 设置RecyclerView列表形式
-        LinearLayoutManager layoutManager = new LinearLayoutManager(RecyclerViewPracticeActivity.this);
+        layoutManager = new LinearLayoutManager(RecyclerViewPracticeActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
     }
@@ -69,8 +93,45 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
             }
         });
         testScrollHandler = new TestScrollHandler(mRecyclerView);
-        testScrollHandler.sendEmptyMessageDelayed(0, 3*1000);
     }
+
+    View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String pos = recyclerEdit.getText().toString();
+            if (TextUtils.isEmpty(pos)){
+                return;
+            }
+            switch (v.getId()){
+                case R.id.close_loop_scroll:
+                    switch_close_scroll = !switch_close_scroll;
+                    if (switch_close_scroll){
+                        closeLoopScroll.setText("关闭循环滚动");
+                        testScrollHandler.removeCallbacksAndMessages(null);
+                    }else {
+                        closeLoopScroll.setText("开启循环滚动");
+                        testScrollHandler.removeMessages(0);
+                        testScrollHandler.sendEmptyMessageDelayed(0, 3*1000);
+                    }
+                    break;
+                case R.id.test_smooth_scroll_to_position:
+                    mRecyclerView.smoothScrollToPosition(Integer.valueOf(pos));
+                    break;
+                case R.id.test_smooth_scroll_by:
+                    int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+                    int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
+                    int position= Integer.valueOf(pos);
+                    if (position > firstVisibleItemPosition && position < lastVisibleItemPosition){
+                        View childView = mRecyclerView.getChildAt(position-firstVisibleItemPosition);
+                        mRecyclerView.smoothScrollBy(0, childView.getTop());
+                    }
+                    break;
+                case R.id.test_scroll_to_position_with_offset:
+                    layoutManager.scrollToPositionWithOffset(Integer.valueOf(pos), 0);
+                    break;
+            }
+        }
+    };
 
     static class TestScrollHandler extends HandlerUtils<RecyclerView>{
 
