@@ -88,6 +88,21 @@
         <!--Android SQLite练习Activity-->
         <activity android:name=".activities.practice.AndroidSQLitePracticeActivity"/>
 
+        <!--RecyclerView的练习页面-->
+        <activity android:name=".activities.practice.RecyclerViewPracticeActivity"/>
+
+        <!--OkHttp3练习页面-->
+        <activity android:name=".activities.practice.OkHttp3PracticeActivity"/>
+
+        <!--Retrofit2练习页面-->
+        <activity android:name=".activities.practice.Retrofit2PracticeActivity"/>
+
+        <!--HttpUtils练习页面-->
+        <activity android:name=".activities.practice.HttpUtilsPracticeActivity"/>
+
+        <!--Glide练习页面-->
+        <activity android:name=".activities.practice.GlidePracticeActivity"/>
+
         <!--服务-->
         <service
             android:name=".service.ZeusService"

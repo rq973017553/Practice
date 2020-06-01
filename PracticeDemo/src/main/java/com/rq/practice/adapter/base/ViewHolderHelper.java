@@ -148,6 +148,7 @@ public class ViewHolderHelper<T extends IAdapter> implements IAdapter.IViewHolde
 
     @Override
     public <T extends View> T getItemView(int id) {
+        // 这里使用了缓存是为了减少findViewById，findViewById会消耗更多资源
         View view = mViews.get(id);
         if (view == null){
             view = mItemView.findViewById(id);

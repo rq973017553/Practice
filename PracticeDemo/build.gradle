@@ -4,6 +4,12 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
+    // 解决添加okhttp3,retrofit编译后报错
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.rq.practice"
         minSdkVersion 14
@@ -29,6 +35,24 @@ android {
     }
 }
 
+ext{
+    rxjava2_ver = '2.1.16'
+    rxjava2_android_ver = '2.0.2'
+
+    okhttp3_ver = '4.5.0'
+
+    gson_ver = '2.8.5'
+
+    retrofit2_core_ver = '2.8.1'
+    retrofit2_rxjava2_ver = '2.8.1'
+    retrofit2_gson_ver = '2.8.1'
+
+    dagger2_ver = '2.16'
+    dagger2_annotation_ver = '2.16'
+
+    glide_ver = '4.11.0'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
@@ -41,28 +65,32 @@ dependencies {
     // support-v4jar包
     implementation 'com.android.support:support-v4:28.0.0'
 
+    // glide
+    implementation 'com.github.bumptech.glide:glide:'+glide_ver
+
     // RxJava2
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.16'
+    implementation 'io.reactivex.rxjava2:rxjava:'+rxjava2_ver
 
     // RxJava的android适配
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:'+rxjava2_android_ver
 
-    // 'annotationProcessor'注解编译
+
     // dagger2
-    implementation 'com.google.dagger:dagger:2.16'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
+    implementation 'com.google.dagger:dagger:'+dagger2_ver
+    // annotationProcessor注解编译
+    annotationProcessor 'com.google.dagger:dagger-compiler:'+dagger2_annotation_ver
 
     // retrofit2核心
-//    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
-//    // retrofit2配合rxjava
-//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
-//    // retrofit2配合gson
-//    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
-//    // gson
-//    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:'+retrofit2_core_ver
+    // retrofit2配合rxjava
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:'+retrofit2_rxjava2_ver
+    // retrofit2配合gson
+    implementation 'com.squareup.retrofit2:converter-gson:'+retrofit2_gson_ver
+    // gson
+    implementation 'com.google.code.gson:gson:'+gson_ver
 
     // okhttp3
-    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.squareup.okhttp3:okhttp:'+okhttp3_ver
 
     // 自己写的路由
     implementation project(':router')

@@ -15,6 +15,8 @@ import com.rq.practice.activities.practice.EasyVideoViewPracticeActivity;
 import com.rq.practice.activities.practice.FragmentTabHostPractice;
 import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.ListViewPracticeActivity;
+import com.rq.practice.activities.practice.OkHttp3PracticeActivity;
+import com.rq.practice.activities.practice.RecyclerViewPracticeActivity;
 import com.rq.practice.activities.practice.RxJavaPracticeActivity;
 import com.rq.practice.activities.practice.ServicePracticeActivity;
 import com.rq.practice.activities.practice.ShowFontMetricsActivity;
@@ -71,6 +73,7 @@ public class MainActivity extends BaseToolBarActivity {
         listData.add(createPracticeBean(ViewPagerTabLayoutPractice.class));
         listData.add(createPracticeBean(JNIPracticeActivity.class));
         listData.add(createPracticeBean(ListViewPracticeActivity.class));
+        listData.add(createPracticeBean(RecyclerViewPracticeActivity.class));
         listData.add(createPracticeBean(ShowFontMetricsActivity.class));
         listData.add(createPracticeBean(CanvasPracticeActivity.class));
         listData.add(createPracticeBean(ConstraintLayoutPracticeActivity.class));
@@ -78,6 +81,7 @@ public class MainActivity extends BaseToolBarActivity {
         listData.add(createPracticeBean(SurfaceViewPracticeActivity.class));
         listData.add(createPracticeBean(ServicePracticeActivity.class));
         listData.add(createPracticeBean(WebViewPlayerActivity.class));
+        listData.add(createPracticeBean(OkHttp3PracticeActivity.class));
         mMainAdapter.setListData(listData);
     }
 
