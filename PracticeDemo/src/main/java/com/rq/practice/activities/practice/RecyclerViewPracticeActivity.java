@@ -87,6 +87,17 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+                switch (newState){
+                    case RecyclerView.SCROLL_STATE_DRAGGING:
+                        EasyLog.e("拖动中!");
+                        break;
+                    case RecyclerView.SCROLL_STATE_IDLE:
+                        EasyLog.e("静止中!");
+                        break;
+                    case RecyclerView.SCROLL_STATE_SETTLING:
+                        EasyLog.e("滚动中!");
+                        break;
+                }
             }
 
             @Override
