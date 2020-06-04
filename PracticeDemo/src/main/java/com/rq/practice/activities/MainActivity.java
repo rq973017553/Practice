@@ -13,6 +13,7 @@ import com.rq.practice.activities.practice.CanvasPracticeActivity;
 import com.rq.practice.activities.practice.CustomScrollActivity;
 import com.rq.practice.activities.practice.EasyVideoViewPracticeActivity;
 import com.rq.practice.activities.practice.FragmentTabHostPractice;
+import com.rq.practice.activities.practice.GlidePracticeActivity;
 import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.ListViewPracticeActivity;
 import com.rq.practice.activities.practice.OkHttp3PracticeActivity;
@@ -66,6 +67,7 @@ public class MainActivity extends BaseToolBarActivity {
     public void initData() {
         List<PracticeBean> listData = new ArrayList<>();
         listData.add(createPracticeBean(AndroidSQLitePracticeActivity.class));
+        listData.add(createPracticeBean(GlidePracticeActivity.class));
         listData.add(createPracticeBean(PhotoSelectActivity.class));
         listData.add(createPracticeBean(FragmentTabHostPractice.class));
         listData.add(createPracticeBean(CustomScrollActivity.class));
