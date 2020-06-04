@@ -113,7 +113,7 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
         int firstVisiblePosition = listView.getFirstVisiblePosition();
         if (firstVisiblePosition == 0) {
             View firstView = listView.getChildAt(firstVisiblePosition);
-            if (firstView != null && firstView.getTop() == firstView.getPaddingTop()) {
+            if (firstView != null && firstView.getTop() == listView.getPaddingTop()) {
                 return true;
             }
         }
@@ -125,7 +125,7 @@ public class ListViewPracticeActivity extends BaseToolBarActivity {
         int lastVisiblePosition = listView.getLastVisiblePosition();
         if (lastVisiblePosition == listView.getCount() - 1) {
             View lastView = listView.getChildAt(lastVisiblePosition - firstVisiblePosition);
-            if (lastView != null && lastView.getBottom() == listView.getHeight() + lastView.getPaddingBottom()) {
+            if (lastView != null && lastView.getBottom() + listView.getPaddingBottom()== listView.getHeight()) {
                 return true;
             }
         }

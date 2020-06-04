@@ -15,7 +15,6 @@ import com.rq.practice.activities.base.BaseToolBarActivity;
 import com.rq.practice.adapter.RecyclerListAdapter;
 import com.rq.practice.adapter.base.IAdapterChildClickListener;
 import com.rq.practice.bean.RecyclerListBean;
-import com.rq.practice.utils.EasyLog;
 import com.rq.practice.utils.HandlerUtils;
 
 import java.util.ArrayList;
@@ -89,13 +88,13 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 switch (newState){
                     case RecyclerView.SCROLL_STATE_DRAGGING:
-                        EasyLog.e("拖动中!");
+//                        EasyLog.e("拖动中!");
                         break;
                     case RecyclerView.SCROLL_STATE_IDLE:
-                        EasyLog.e("静止中!");
+//                        EasyLog.e("静止中!");
                         break;
                     case RecyclerView.SCROLL_STATE_SETTLING:
-                        EasyLog.e("滚动中!");
+//                        EasyLog.e("滚动中!");
                         break;
                 }
             }
@@ -103,9 +102,48 @@ public class RecyclerViewPracticeActivity extends BaseToolBarActivity {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                if (isScrollToTop(recyclerView)){
+                    Toast.makeText(RecyclerViewPracticeActivity.this,
+                            "列表到顶了!", Toast.LENGTH_SHORT).show();
+                }else if (isScrollToBottom(recyclerView)){
+                    Toast.makeText(RecyclerViewPracticeActivity.this,
+                            "列表到底了!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         testScrollHandler = new TestScrollHandler(mRecyclerView);
+    }
+
+    private boolean isScrollToBottom(RecyclerView recyclerView){
+        LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        if (layoutManager != null){
+            int firstVisiblePosition = layoutManager.findFirstVisibleItemPosition();
+            int lastVisiblePosition = layoutManager.findLastVisibleItemPosition();
+            RecyclerView.Adapter adapter = recyclerView.getAdapter();
+            if (adapter != null){
+                if (lastVisiblePosition == adapter.getItemCount()-1){
+                    View lastView = recyclerView.getChildAt(lastVisiblePosition - firstVisiblePosition);
+                    if (lastView.getBottom() + recyclerView.getPaddingBottom() == recyclerView.getHeight()){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isScrollToTop(RecyclerView recyclerView){
+        LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        if (layoutManager != null){
+            int firstVisiblePosition = layoutManager.findFirstVisibleItemPosition();
+            if (firstVisiblePosition == 0){
+                View firstView = recyclerView.getChildAt(firstVisiblePosition);
+                if (firstView.getTop() == recyclerView.getPaddingTop()){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
