@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/test_glide_ima"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

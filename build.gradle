@@ -44,11 +44,21 @@ buildscript {
 
 // 该配置会被应用到所有的子工程
 allprojects {
+
+    // 添加一个常规目录作为仓库
+    // 比如从libs目录下添加arr包
+    if (new File('libs').exists()){
+        flatDir{
+            dirs "libs"
+        }
+    }
+
     repositories {
         google()
         jcenter()
         mavenCentral()
     }
+
 }
 
 // 运行gradle clean时，执行此处定义的task。
