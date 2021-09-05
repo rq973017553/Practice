@@ -23,6 +23,7 @@ import com.rq.practice.activities.practice.ServicePracticeActivity;
 import com.rq.practice.activities.practice.ShowFontMetricsActivity;
 import com.rq.practice.activities.practice.SurfaceViewPracticeActivity;
 import com.rq.practice.activities.practice.ConstraintLayoutPracticeActivity;
+import com.rq.practice.activities.practice.ViewPagerActivity;
 import com.rq.practice.activities.practice.ViewPagerTabLayoutPractice;
 import com.rq.practice.activities.practice.WebViewPlayerActivity;
 import com.rq.practice.activities.practice.edit.PhotoSelectActivity;
@@ -66,6 +67,7 @@ public class MainActivity extends BaseToolBarActivity {
     @Override
     public void initData() {
         List<PracticeBean> listData = new ArrayList<>();
+        listData.add(createPracticeBean(ViewPagerActivity.class));
         listData.add(createPracticeBean(AndroidSQLitePracticeActivity.class));
         listData.add(createPracticeBean(GlidePracticeActivity.class));
         listData.add(createPracticeBean(PhotoSelectActivity.class));

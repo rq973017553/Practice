@@ -103,6 +103,9 @@
         <!--Glide练习页面-->
         <activity android:name=".activities.practice.GlidePracticeActivity"/>
 
+        <!--ViewPager练习页面-->
+        <activity android:name=".activities.practice.ViewPagerActivity"/>
+
         <!--服务-->
         <service
             android:name=".service.ZeusService"
