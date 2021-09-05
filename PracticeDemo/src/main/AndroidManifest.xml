@@ -106,6 +106,9 @@
         <!--ViewPager练习页面-->
         <activity android:name=".activities.practice.ViewPagerActivity"/>
 
+        <!--原生Recycler-->
+        <activity android:name=".activities.practice.NativeRecyclerActivity"/>
+
         <!--服务-->
         <service
             android:name=".service.ZeusService"

@@ -16,6 +16,7 @@ import com.rq.practice.activities.practice.FragmentTabHostPractice;
 import com.rq.practice.activities.practice.GlidePracticeActivity;
 import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.ListViewPracticeActivity;
+import com.rq.practice.activities.practice.NativeRecyclerActivity;
 import com.rq.practice.activities.practice.OkHttp3PracticeActivity;
 import com.rq.practice.activities.practice.RecyclerViewPracticeActivity;
 import com.rq.practice.activities.practice.RxJavaPracticeActivity;
@@ -68,6 +69,7 @@ public class MainActivity extends BaseToolBarActivity {
     public void initData() {
         List<PracticeBean> listData = new ArrayList<>();
         listData.add(createPracticeBean(ViewPagerActivity.class));
+        listData.add(createPracticeBean(NativeRecyclerActivity.class));
         listData.add(createPracticeBean(AndroidSQLitePracticeActivity.class));
         listData.add(createPracticeBean(GlidePracticeActivity.class));
         listData.add(createPracticeBean(PhotoSelectActivity.class));
