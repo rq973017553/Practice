@@ -40,6 +40,7 @@ ext{
     rxjava2_android_ver = '2.0.2'
 
     okhttp3_ver = '4.5.0'
+//    okhttp3_ver = '3.10.0'
 
     gson_ver = '2.8.5'
 
