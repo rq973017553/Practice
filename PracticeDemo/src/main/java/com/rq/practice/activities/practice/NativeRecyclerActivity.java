@@ -46,9 +46,11 @@ public class NativeRecyclerActivity extends BaseToolBarActivity {
                     case RecyclerView.SCROLL_STATE_IDLE:
                         LinearLayoutManager manager = (LinearLayoutManager)nativeRecyclerView.getLayoutManager();
                         Log.e("scboy", "SCROLL_STATE_IDLE FirstCompletelyVisible "+manager.findFirstCompletelyVisibleItemPosition());
-                        Log.e("scboy", "SCROLL_STATE_IDLE LastCompletelyVisible "+manager.findLastCompletelyVisibleItemPosition());
                         Log.e("scboy", "SCROLL_STATE_IDLE FirstVisibleItem "+manager.findFirstVisibleItemPosition());
+                        Log.e("scboy", "SCROLL_STATE_IDLE LastCompletelyVisible "+manager.findLastCompletelyVisibleItemPosition());
                         Log.e("scboy", "SCROLL_STATE_IDLE LastVisibleItem "+manager.findLastVisibleItemPosition());
+                        Log.e("scboy", "SCROLL_STATE_IDLE ItemCount "+manager.getItemCount());
+                        Log.e("scboy", "SCROLL_STATE_IDLE ChildCount "+manager.getChildCount());
                         break;
                     case RecyclerView.SCROLL_STATE_DRAGGING:
                         Log.e("scboy", "SCROLL_STATE_DRAGGING");
@@ -69,7 +71,7 @@ public class NativeRecyclerActivity extends BaseToolBarActivity {
     public void initData() {
         nativeRecyclerAdapter = new NativeRecyclerAdapter(NativeRecyclerActivity.this);
         List<String> data = new ArrayList<>();
-        for (int i = 0; i < 100; i ++){
+        for (int i = 0; i < 15; i ++){
             data.add(String.valueOf(i));
         }
         nativeRecyclerAdapter.setDataList(data);
