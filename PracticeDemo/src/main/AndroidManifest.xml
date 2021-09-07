@@ -109,6 +109,9 @@
         <!--原生Recycler-->
         <activity android:name=".activities.practice.NativeRecyclerActivity"/>
 
+        <!--BitmapRegionDecoder练习页面-->
+        <activity android:name=".activities.practice.BitmapRegionDecoderPracticeActivity"/>
+
         <!--服务-->
         <service
             android:name=".service.ZeusService"

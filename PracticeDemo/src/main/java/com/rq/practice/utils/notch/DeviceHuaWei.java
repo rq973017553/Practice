@@ -22,7 +22,7 @@ public class DeviceHuaWei extends BaseNotch
         try
         {
             ClassLoader cl = window.getContext().getClassLoader();
-            Class hwNotchSizeUtil = cl.loadClass("com.huawei.android.util.HwNotchSizeUtil");
+            Class<?> hwNotchSizeUtil = cl.loadClass("com.huawei.android.util.HwNotchSizeUtil");
             Method get = hwNotchSizeUtil.getMethod("hasNotchInScreen", null);
             isNotchScreen = (Boolean) get.invoke(hwNotchSizeUtil, null);
         }
@@ -48,7 +48,7 @@ public class DeviceHuaWei extends BaseNotch
         try
         {
             ClassLoader cl = window.getContext().getClassLoader();
-            Class HwNotchSizeUtil = cl.loadClass("com.huawei.android.util.HwNotchSizeUtil");
+            Class<?> HwNotchSizeUtil = cl.loadClass("com.huawei.android.util.HwNotchSizeUtil");
             Method get = HwNotchSizeUtil.getMethod("getNotchSize", null);
             int[] result = (int[]) get.invoke(HwNotchSizeUtil, null);
             notch.setWidth(result[0]);
