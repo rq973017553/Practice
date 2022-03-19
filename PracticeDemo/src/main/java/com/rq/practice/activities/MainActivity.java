@@ -15,6 +15,7 @@ import com.rq.practice.activities.practice.CustomScrollActivity;
 import com.rq.practice.activities.practice.EasyVideoViewPracticeActivity;
 import com.rq.practice.activities.practice.FragmentTabHostPractice;
 import com.rq.practice.activities.practice.GlidePracticeActivity;
+import com.rq.practice.activities.practice.HandlerBarrierActivity;
 import com.rq.practice.activities.practice.JNIPracticeActivity;
 import com.rq.practice.activities.practice.ListViewPracticeActivity;
 import com.rq.practice.activities.practice.NativeRecyclerActivity;
@@ -69,6 +70,7 @@ public class MainActivity extends BaseToolBarActivity {
     @Override
     public void initData() {
         List<PracticeBean> listData = new ArrayList<>();
+        listData.add(createPracticeBean(HandlerBarrierActivity.class));
         listData.add(createPracticeBean(BitmapRegionDecoderPracticeActivity.class));
         listData.add(createPracticeBean(ViewPagerActivity.class));
         listData.add(createPracticeBean(NativeRecyclerActivity.class));

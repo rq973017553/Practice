@@ -112,6 +112,9 @@
         <!--BitmapRegionDecoder练习页面-->
         <activity android:name=".activities.practice.BitmapRegionDecoderPracticeActivity"/>
 
+        <!--Handler消息屏障-->
+        <activity android:name=".activities.practice.HandlerBarrierActivity"/>
+
         <!--服务-->
         <service
             android:name=".service.ZeusService"
