@@ -15,6 +15,9 @@
     <!--手机震动权限-->
     <uses-permission android:name="android.permission.VIBRATE"/>
 
+    <!--照相功能权限-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
         android:name="com.rq.practice.PracticeApplication"
         android:allowBackup="false"
@@ -81,6 +84,9 @@
 
         <!--照片选择Activity-->
         <activity android:name=".activities.practice.edit.PhotoSelectActivity"/>
+
+        <!--照相机页面-->
+        <activity android:name=".activities.practice.Camera2PracticeActivity"/>
 
         <!--图片编辑Activity-->
         <activity android:name=".activities.practice.edit.PictureEditActivity"/>

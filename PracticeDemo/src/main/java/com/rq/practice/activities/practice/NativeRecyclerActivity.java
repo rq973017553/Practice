@@ -45,12 +45,12 @@ public class NativeRecyclerActivity extends BaseToolBarActivity {
                 switch (newState){
                     case RecyclerView.SCROLL_STATE_IDLE:
                         LinearLayoutManager manager = (LinearLayoutManager)nativeRecyclerView.getLayoutManager();
-                        Log.e("scboy", "SCROLL_STATE_IDLE FirstCompletelyVisible "+manager.findFirstCompletelyVisibleItemPosition());
                         Log.e("scboy", "SCROLL_STATE_IDLE FirstVisibleItem "+manager.findFirstVisibleItemPosition());
-                        Log.e("scboy", "SCROLL_STATE_IDLE LastCompletelyVisible "+manager.findLastCompletelyVisibleItemPosition());
                         Log.e("scboy", "SCROLL_STATE_IDLE LastVisibleItem "+manager.findLastVisibleItemPosition());
-                        Log.e("scboy", "SCROLL_STATE_IDLE ItemCount "+manager.getItemCount());
-                        Log.e("scboy", "SCROLL_STATE_IDLE ChildCount "+manager.getChildCount());
+//                        Log.e("scboy", "SCROLL_STATE_IDLE FirstCompletelyVisible "+manager.findFirstCompletelyVisibleItemPosition());
+//                        Log.e("scboy", "SCROLL_STATE_IDLE LastCompletelyVisible "+manager.findLastCompletelyVisibleItemPosition());
+//                        Log.e("scboy", "SCROLL_STATE_IDLE ItemCount "+manager.getItemCount());
+//                        Log.e("scboy", "SCROLL_STATE_IDLE ChildCount "+manager.getChildCount());
                         break;
                     case RecyclerView.SCROLL_STATE_DRAGGING:
                         Log.e("scboy", "SCROLL_STATE_DRAGGING");
