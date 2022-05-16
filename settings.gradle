@@ -1,1 +1,4 @@
-include ':PracticeDemo', ':router', ':jnilibrary'
+include ':PracticeDemo'
+include ':router'
+include ':jnilibrary'
+rootProject.name='Practice'

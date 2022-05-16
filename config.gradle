@@ -1,0 +1,63 @@
+ext{
+    kotlin_version=[
+        kotlin_version:"1.4.21", // kotlin版本
+        kotlin_coroutines_version:"1.5.0-RC" // kotlin协程版本
+    ]
+
+    android_support=[
+            appcompat_v7:'com.android.support:appcompat-v7:28.0.0',
+            support_v4:'com.android.support:support-v4:28.0.0',
+            design:'com.android.support:design:28.0.0',
+            constraint:'com.android.support.constraint:constraint-layout:2.0.1',
+            recyclerview:'com.android.support:recyclerview-v7:28.0.0',
+            multidex:'com.android.support:multidex:1.0.3'
+    ]
+
+    rxjava2=[
+            // RxJava2
+            rxjava2:'io.reactivex.rxjava2:rxjava:2.2.6',
+            // RxJava的android适配
+            rxjava2_android:'io.reactivex.rxjava2:rxandroid:2.1.0'
+    ]
+
+    retrofit2=[
+            // retrofit2核心
+            retrofit2:'com.squareup.retrofit2:retrofit:2.8.1',
+            // retrofit2配合rxjava
+            retrofit2_gson:'com.squareup.retrofit2:converter-gson:2.8.1',
+            // retrofit2配合gson
+            retrofit2_rxjava:'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
+    ]
+
+    okhttp3=[
+            // okhttp3
+            okhttp3:'com.squareup.okhttp3:okhttp:4.7.2',
+//          okhttp3:'com.squareup.okhttp3:okhttp:3.10.0'
+    ]
+
+    gson=[
+            // gson
+            gson:'com.google.code.gson:gson:2.8.5'
+    ]
+
+    glide=[
+            // glide
+            glide:'com.github.bumptech.glide:glide:4.9.0',
+            // 注解处理器
+            glide_annotation:'com.github.bumptech.glide:compiler:4.9.0',
+            // glide的扩展，用于实现高斯模糊和圆角等效果
+            glide_transf:'jp.wasabeef:glide-transformations:4.0.1'
+    ]
+
+    dagger2=[
+            // dagger2
+            dagger2:'com.google.dagger:dagger:2.16',
+            // dagger annotationProcessor注解编译
+            dagger2_annotation:'com.google.dagger:dagger-compiler:2.16'
+    ]
+
+    gpuimage=[
+            // 基于OpenGL ES 2.0的图片处理库
+            gpuimage:'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.0'
+    ]
+}
