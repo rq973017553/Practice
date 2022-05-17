@@ -1,6 +1,5 @@
 package com.rq.practice.activities.practice;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.HandlerThread;
