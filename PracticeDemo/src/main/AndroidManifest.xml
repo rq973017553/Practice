@@ -40,6 +40,9 @@
         <!--FragmentTabHost组件练习-->
         <activity android:name=".activities.practice.FragmentTabHostPractice" />
 
+        <!--嵌套ViewActivity-->
+        <activity android:name=".activities.practice.nested.NestedViewActivity"/>
+
         <!--自定义View练习-->
         <activity android:name=".activities.practice.CustomScrollActivity" />
 

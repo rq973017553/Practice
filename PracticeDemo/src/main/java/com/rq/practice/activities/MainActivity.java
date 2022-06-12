@@ -30,6 +30,7 @@ import com.rq.practice.activities.practice.ViewPagerActivity;
 import com.rq.practice.activities.practice.ViewPagerTabLayoutPractice;
 import com.rq.practice.activities.practice.WebViewPlayerActivity;
 import com.rq.practice.activities.practice.edit.PhotoSelectActivity;
+import com.rq.practice.activities.practice.nested.NestedViewActivity;
 import com.rq.practice.adapter.MainAdapter;
 import com.rq.practice.adapter.base.IAdapterChildClickListener;
 import com.rq.practice.bean.PracticeBean;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseToolBarActivity {
     @Override
     public void initData() {
         List<PracticeBean> listData = new ArrayList<>();
+        listData.add(createPracticeBean(NestedViewActivity.class));
         listData.add(createPracticeBean(HandlerBarrierActivity.class));
         listData.add(createPracticeBean(BitmapRegionDecoderPracticeActivity.class));
         listData.add(createPracticeBean(ViewPagerActivity.class));
