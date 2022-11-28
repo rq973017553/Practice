@@ -3,18 +3,22 @@
     <!--练习Draw的View-->
     <declare-styleable name="DrawPracticeView">
         <attr name="canvas_classify" format="enum">
-            <enum name="draw_circle" value="0"/>
-            <enum name="draw_rect" value="1"/>
-            <enum name="draw_round_point" value="2"/>
-            <enum name="draw_square_point" value="3"/>
-            <enum name="draw_butt_point" value="4"/>
-            <enum name="draw_bitmap" value="5"/>
-            <enum name="draw_zoom_bitmap" value="6"/>
+            <enum name="draw_line" value="0" />
+            <enum name="draw_lines" value="1" />
+            <enum name="draw_circle" value="2" />
+            <enum name="draw_rect" value="3" />
+            <enum name="draw_round_point" value="4" />
+            <enum name="draw_square_point" value="5" />
+            <enum name="draw_butt_point" value="6" />
+            <enum name="draw_bitmap" value="7" />
+            <enum name="draw_zoom_bitmap" value="8" />
+            <enum name="draw_save_restore" value="9" />
+            <enum name="draw_scale" value="10" />
         </attr>
     </declare-styleable>
 
     <!-- 倒计时TextView -->
     <declare-styleable name="CountDownTextView">
-        <attr name="countdownFormat" format="string"/>
+        <attr name="countdownFormat" format="string" />
     </declare-styleable>
 </resources>

@@ -8,7 +8,7 @@
     <com.rq.practice.view.draw.DrawPracticeView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:canvas_classify="draw_bitmap"
+        app:canvas_classify="draw_scale"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
