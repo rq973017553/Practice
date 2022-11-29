@@ -1,7 +1,8 @@
 package com.rq.practice.activities.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import com.rq.practice.PracticeApplication;
 import com.rq.practice.framework.dagger.component.ActivityComponent;

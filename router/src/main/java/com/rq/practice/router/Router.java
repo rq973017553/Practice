@@ -3,8 +3,9 @@ package com.rq.practice.router;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
+
+import androidx.core.app.ActivityCompat;
 
 import java.util.Map;
 

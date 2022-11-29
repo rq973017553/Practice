@@ -37,12 +37,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     testImplementation 'junit:junit:4.12'
 
     implementation android_support.appcompat_v7
-    implementation android_support.design
+//    implementation android_support.design
     // support-v4jar包
-    implementation android_support.support_v4
+//    implementation android_support.support_v4
     // ConstraintLayout所需要的jar包
     implementation android_support.constraint
 
@@ -65,8 +68,11 @@ dependencies {
 
     // dagger2
     implementation dagger2.dagger2
+    implementation dagger2.dagger2_android
+    implementation dagger2.dagger2_support
     // annotationProcessor注解编译
     annotationProcessor dagger2.dagger2_annotation
+    annotationProcessor dagger2.dagger2_annotation_compiler
 
     // retrofit2核心
     implementation retrofit2.retrofit2

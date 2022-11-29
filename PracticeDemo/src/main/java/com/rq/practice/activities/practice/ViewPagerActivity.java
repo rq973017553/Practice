@@ -1,6 +1,6 @@
 package com.rq.practice.activities.practice;
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseToolBarActivity;

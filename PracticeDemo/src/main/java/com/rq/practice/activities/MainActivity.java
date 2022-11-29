@@ -1,10 +1,11 @@
 package com.rq.practice.activities;
 
 import android.app.Activity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.BaseToolBarActivity;

@@ -2,8 +2,9 @@ package com.rq.practice.activities.practice;
 
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.support.v7.app.ActionBar;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.rq.practice.R;
 import com.rq.practice.activities.base.CommonActivity;

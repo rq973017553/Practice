@@ -1,7 +1,8 @@
 package com.rq.practice.adapter.base;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 // 网上的代码，用来给RecyclerView的childView设置点击事件
 //https://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/

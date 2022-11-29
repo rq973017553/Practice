@@ -1,6 +1,6 @@
 package com.rq.practice.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
