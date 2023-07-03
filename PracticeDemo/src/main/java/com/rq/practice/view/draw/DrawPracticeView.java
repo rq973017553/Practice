@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -27,6 +28,8 @@ public class DrawPracticeView extends BaseDrawView {
     private Bitmap mBitmap;
 
     private BitmapFactory.Options mOptions;
+
+    private final Matrix mLocationMatrix = new Matrix();
 
     public static class CanvasClassify {
         public static final int DRAW_LINE = 0;
@@ -50,6 +53,8 @@ public class DrawPracticeView extends BaseDrawView {
         public static final int DRAW_SAVE_RESTORE = 9;
 
         public static final int DRAW_SCALE = 10;
+
+        public static final int DRAW_MATRIX = 11;
     }
 
     public DrawPracticeView(Context context) {
@@ -91,10 +96,10 @@ public class DrawPracticeView extends BaseDrawView {
 
     @Override
     public void drawCanvas(Canvas canvas) {
-        int measuredWidth = getMeasuredWidth();
-        int measuredHeight = getMeasuredHeight();
-        float cx = measuredWidth * 0.5f;
-        float cy = measuredHeight * 0.5f;
+        int width = getWidth();
+        int height = getHeight();
+        float cx = width / 2.0f;
+        float cy = height / 2.0f;
         switch (mCanvasClassify) {
             case CanvasClassify.DRAW_LINE:
                 drawLine(canvas);
@@ -129,6 +134,9 @@ public class DrawPracticeView extends BaseDrawView {
             case CanvasClassify.DRAW_SCALE:
                 drawScale(canvas);
                 break;
+            case CanvasClassify.DRAW_MATRIX:
+                drawMatrix(canvas);
+                break;
             default:
                 drawError(cx, cy, canvas);
                 break;
@@ -146,6 +154,23 @@ public class DrawPracticeView extends BaseDrawView {
 //        canvas.scale(2.0f, 2.0f, getWidth() / 2.0f, getHeight() / 2.0f);
         canvas.drawBitmap(mBitmap, 0, 0, null);
         canvas.restore();
+    }
+
+    private void drawMatrix(Canvas canvas){
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        Bitmap newBitmap = mBitmap.copy(Bitmap.Config.ARGB_8888, true);
+        float px = (getWidth() - mBitmap.getWidth()) / 2.0f;
+        float py = (getHeight() - mBitmap.getHeight()) / 2.0f;
+//        mLocationMatrix.preTranslate(px, py);
+//        mLocationMatrix.preRotate(180,
+//                mBitmap.getWidth() / 2.0f,
+//                mBitmap.getHeight() / 2.0f
+//        );
+        mLocationMatrix.preTranslate(px, py);
+        mLocationMatrix.preRotate(90);
+        mLocationMatrix.preTranslate(-mBitmap.getWidth(), -mBitmap.getHeight());
+        canvas.drawBitmap(mBitmap, mLocationMatrix, null);
+//        canvas.drawBitmap(newBitmap, px, py, null);
     }
 
     private void drawCanvasSaveRestore(Canvas canvas) {

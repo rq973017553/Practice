@@ -14,6 +14,7 @@
             <enum name="draw_zoom_bitmap" value="8" />
             <enum name="draw_save_restore" value="9" />
             <enum name="draw_scale" value="10" />
+            <enum name="draw_matrix" value="11" />
         </attr>
     </declare-styleable>
 
